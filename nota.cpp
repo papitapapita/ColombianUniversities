@@ -9,6 +9,11 @@ Nota::Nota()
     nota = 0;
 }
 
+Nota::Nota(int nota)
+{
+    this->nota = nota;
+}
+
 float Nota::getNota() const
 {
     return nota;

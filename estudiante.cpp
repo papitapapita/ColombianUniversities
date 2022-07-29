@@ -115,3 +115,17 @@ void Estudiante::setStart(Nota *start)
 {
     this->start = start;
 }
+
+void Estudiante::insertarNota(int nota)
+{
+    Nota *newNota = new Nota(nota);
+    if (!this->getStart())
+        this->setStart(newNota);
+    else
+    {
+        Nota *aux = this->getStart();
+        while (aux->getNext())
+            aux = aux->getNext();
+        aux->setNext(newNota);
+    }
+}
