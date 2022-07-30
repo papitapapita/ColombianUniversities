@@ -1,7 +1,7 @@
 #ifndef ESTUDIANTE_H
 #define ESTUDIANTE_H
+#include "nota.cpp"
 #include <iostream>
-#include "Nota.h"
 using namespace std;
 
 class Estudiante
@@ -17,6 +17,7 @@ class Estudiante
 
 public:
     Estudiante();
+    ~Estudiante();
     Estudiante(string nombres, string tipoDocumento, string apellidos, string genero, int edad, int documento);
     string getNombres();
     string getTipoDocumento();
