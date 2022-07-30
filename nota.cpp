@@ -9,7 +9,7 @@ Nota::Nota()
     nota = 0;
 }
 
-Nota::Nota(int nota)
+Nota::Nota(float nota)
 {
     this->nota = nota;
 }

@@ -35,7 +35,9 @@ public:
     void setDocumento(int);
     void setNext(Estudiante *);
     void setStart(Nota *);
-    void insertarNota(int);
+    void insertarNota(float);
+    void mostrarNotas();
+    void eliminarNota(float);
 };
 
 #endif

@@ -1,5 +1,7 @@
 #include "Estudiante.h"
 
+using namespace std;
+
 Estudiante::Estudiante()
 {
     nombres = "";
@@ -116,7 +118,7 @@ void Estudiante::setStart(Nota *start)
     this->start = start;
 }
 
-void Estudiante::insertarNota(int nota)
+void Estudiante::insertarNota(float nota)
 {
     Nota *newNota = new Nota(nota);
     if (!this->getStart())
@@ -127,5 +129,15 @@ void Estudiante::insertarNota(int nota)
         while (aux->getNext())
             aux = aux->getNext();
         aux->setNext(newNota);
+    }
+}
+
+void Estudiante::mostrarNotas()
+{
+    Nota *aux = this->getStart();
+    while (aux)
+    {
+        cout << aux->getNota() << "\t";
+        aux = aux->getNext();
     }
 }
