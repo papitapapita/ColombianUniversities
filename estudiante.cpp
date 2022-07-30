@@ -19,6 +19,7 @@ Estudiante::Estudiante(string nombres, string tipoDocumento, string apellidos, s
     this->nombres = nombres;
     this->tipoDocumento = tipoDocumento;
     this->apellidos = apellidos;
+
     this->genero = genero;
     this->edad = edad;
     this->documento = documento;
