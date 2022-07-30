@@ -26,6 +26,7 @@ public:
     void setSemestres(int);
     void setNext(Programa *);
     void setStart(Estudiante *);
+    void insertarEstudiante();
 };
 
 #endif

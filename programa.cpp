@@ -4,6 +4,7 @@ Programa::Programa()
 {
     nombre = area = "";
     semestres = 0;
+    Estudiante *eCab = new Estudiante();
 }
 
 Programa::Programa(string nombre, string area, int semestres)
@@ -73,4 +74,9 @@ void Programa::setNext(Programa *next)
 void Programa::setStart(Estudiante *start)
 {
     this->start = start;
+}
+
+void Programa::insertarEstudiante()
+{
+    Estudiante *stAux = new Estudiante();
 }
