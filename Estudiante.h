@@ -1,7 +1,7 @@
 #ifndef ESTUDIANTE_H
 #define ESTUDIANTE_H
-#include <iostream>
 #include "nota.cpp"
+#include <iostream>
 using namespace std;
 
 class Estudiante
@@ -17,6 +17,7 @@ class Estudiante
 
 public:
     Estudiante();
+    ~Estudiante();
     Estudiante(string nombres, string tipoDocumento, string apellidos, string genero, int edad, int documento);
     string getNombres();
     string getTipoDocumento();
@@ -34,6 +35,9 @@ public:
     void setDocumento(int);
     void setNext(Estudiante *);
     void setStart(Nota *);
+    void insertarNota(float);
+    void mostrarNotas();
+    void eliminarNota(float);
 };
 
 #endif

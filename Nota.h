@@ -9,6 +9,7 @@ class Nota
 public:
     ~Nota();
     Nota();
+    Nota(float);
     float getNota() const;
     Nota *getNext() const;
     void setNota(float);

@@ -1,5 +1,7 @@
 #include "Estudiante.h"
 
+using namespace std;
+
 Estudiante::Estudiante()
 {
     nombres = "";
@@ -114,4 +116,28 @@ void Estudiante::setNext(Estudiante *next)
 void Estudiante::setStart(Nota *start)
 {
     this->start = start;
+}
+
+void Estudiante::insertarNota(float nota)
+{
+    Nota *newNota = new Nota(nota);
+    if (!this->getStart())
+        this->setStart(newNota);
+    else
+    {
+        Nota *aux = this->getStart();
+        while (aux->getNext())
+            aux = aux->getNext();
+        aux->setNext(newNota);
+    }
+}
+
+void Estudiante::mostrarNotas()
+{
+    Nota *aux = this->getStart();
+    while (aux)
+    {
+        cout << aux->getNota() << "\t";
+        aux = aux->getNext();
+    }
 }
