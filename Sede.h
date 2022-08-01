@@ -3,19 +3,27 @@
 #include "Programa.h"
 class Sede
 {
-    Programa *programa;
-    Sede *siguiente;
-    string info;
+    Sede *next;
+    Programa *start;
+    string sede;
+    int idSede;
+
 public:
-    Sede(string);
+    Sede();
+    Sede(string, int);
     ~Sede();
-    Sede *getSiguiente();
-    void setSiguiente(Sede *);
-    Programa *getPrograma();
-    void setPrograma(Programa *);
-    void setInfo(string);
-    void insertarPrograma(string);
-    void eliminarPrograma(string);
+    Sede *getNext();
+    void setNext(Sede *);
+    Programa *getStart();
+    void setStart(Programa *);
+    string getSede();
+    void setSede(string);
+    int getIdSede();
+    void setIdSede(int idSede);
+    void insertarPrograma(string, string, int);
+    void eliminarPrograma(int);
+    void mostrarProgramas();
+    int cantidadProgramas();
 };
 
 #endif
