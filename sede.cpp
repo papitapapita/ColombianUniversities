@@ -5,15 +5,15 @@ using namespace std;
 
 Sede::Sede()
 {
-    sede = "";
+    nombre = "";
     next = NULL;
     start = NULL;
     idSede = 0;
 }
 
-Sede::Sede(string sede, int idSede)
+Sede::Sede(string nombre, int idSede)
 {
-    this->sede = sede;
+    this->nombre = nombre;
     this->next = next;
     this->start = start;
     this->idSede = idSede;
@@ -41,9 +41,9 @@ Programa *Sede::getStart()
     return start;
 }
 
-string Sede::getSede()
+string Sede::getNombre()
 {
-    return sede;
+    return nombre;
 }
 
 int Sede::getIdSede()
@@ -61,9 +61,9 @@ void Sede::setStart(Programa *start)
     this->start = start;
 }
 
-void Sede::setSede(string sede)
+void Sede::setNombre(string nonbre)
 {
-    this->sede = sede;
+    this->nombre = nombre;
 }
 
 void Sede::setIdSede(int idSede)
@@ -71,9 +71,9 @@ void Sede::setIdSede(int idSede)
     this->idSede = idSede;
 }
 
-void Sede::insertarPrograma(string nombre, string area, int semestres)
+void Sede::insertarPrograma(string nombre, string area, int semestres, int idPrograma)
 {
-    Programa *newPrograma = new Programa(nombre, area, semestres);
+    Programa *newPrograma = new Programa(nombre, area, semestres, idPrograma);
     if (!this->getStart())
         this->setStart(newPrograma);
     else
@@ -111,7 +111,7 @@ void Sede::mostrarProgramas()
     Programa *aux = this->getStart();
     while (aux)
     {
-        cout << aux->getPrograma() << "\t";
+        cout << aux->getNombre() << "\t";
         aux = aux->getNext();
     }
 }

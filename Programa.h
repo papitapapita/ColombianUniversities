@@ -8,24 +8,27 @@ class Programa
 {
     string nombre;
     string area;
+    int idPrograma;
     int semestres;
     Programa *next;
     Estudiante *start;
 
 public:
     Programa();
-    Programa(string, string, int);
+    Programa(string, string, int, int);
     ~Programa();
     string getNombre();
     string getArea();
     int getSemestres();
     Programa *getNext();
     Estudiante *getStart();
+    int getIdPrograma();
     void setNombre(string);
     void setArea(string);
     void setSemestres(int);
     void setNext(Programa *);
     void setStart(Estudiante *);
+    void setIdPrograma(int);
     void insertarEstudiante(string, string, string, string, int, int);
     void mostrarEstudiante();
     int cantEstudiante();

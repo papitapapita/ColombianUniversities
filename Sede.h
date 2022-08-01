@@ -5,7 +5,7 @@ class Sede
 {
     Sede *next;
     Programa *start;
-    string sede;
+    string nombre;
     int idSede;
 
 public:
@@ -16,11 +16,11 @@ public:
     void setNext(Sede *);
     Programa *getStart();
     void setStart(Programa *);
-    string getSede();
-    void setSede(string);
+    string getNombre();
+    void setNombre(string);
     int getIdSede();
     void setIdSede(int idSede);
-    void insertarPrograma(string, string, int);
+    void insertarPrograma(string, string, int, int);
     void eliminarPrograma(int);
     void mostrarProgramas();
     int cantidadProgramas();

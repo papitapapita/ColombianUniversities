@@ -3,15 +3,16 @@
 Programa::Programa()
 {
     nombre = area = "";
-    semestres = 0;
+    semestres = idPrograma = 0;
     Estudiante *start = new Estudiante();
 }
 
-Programa::Programa(string nombre, string area, int semestres)
+Programa::Programa(string nombre, string area, int semestres, int idSede)
 {
     this->nombre = nombre;
     this->area = area;
     this->semestres = semestres;
+    this->idPrograma = idSede;
 }
 
 Programa::~Programa()
