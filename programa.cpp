@@ -86,9 +86,12 @@ void Programa::insertarEstudiante(string nombres, string tipoDocumento, string a
     else
     {
         Estudiante *aux = this->getStart();
-        while (aux->getNext())
+        while (aux->getDocumento() != documento && aux->getNext())
             aux = aux->getNext();
-        aux->setNext(newEst);
+        if (aux->getDocumento() != documento)
+            aux->setNext(newEst);
+        else
+            cout << "Estudiante ya existe";
     }
 }
 
