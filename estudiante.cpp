@@ -141,3 +141,24 @@ void Estudiante::mostrarNotas()
         aux = aux->getNext();
     }
 }
+
+void Estudiante::eliminarNota(float value)
+{
+    Nota *aux = this->getStart();
+    Nota *aux2 = NULL;
+    while (aux && aux->getNota() != value)
+    {
+        aux2 = aux;
+        aux = aux->getNext();
+    }
+    if (aux)
+    {
+        if (!aux2)
+            this->setStart(aux->getNext());
+        else
+            aux2->setNext(aux->getNext());
+        delete aux;
+    }
+    else
+        cout << "Dato no encontrado";
+}
