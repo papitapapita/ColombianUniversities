@@ -26,8 +26,8 @@ Sede::~Sede()
     while (aux)
     {
         aux2 = aux;
-        delete aux2;
         aux = aux->getNext();
+        delete aux2;
     }
 }
 
