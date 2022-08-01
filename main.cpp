@@ -1,7 +1,5 @@
 #include <iostream>
-#include "estudiante.cpp"
-#include <vector>
-#include <list>
+#include "programa.cpp"
 
 using namespace std;
 
@@ -12,10 +10,4 @@ int main()
     pedro->insertarNota(5);
     pedro->insertarNota(2);
     pedro->insertarNota(4.5);
-    pedro->mostrarNotas();
-    pedro->eliminarNota(4.5);
-    cout << endl;
-    pedro->insertarNota(5);
-    pedro->mostrarNotas();
-    return 0;
 }

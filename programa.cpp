@@ -4,6 +4,7 @@ Programa::Programa()
 {
     nombre = area = "";
     semestres = 0;
+    Estudiante *start = new Estudiante();
 }
 
 Programa::Programa(string nombre, string area, int semestres)
@@ -73,4 +74,41 @@ void Programa::setNext(Programa *next)
 void Programa::setStart(Estudiante *start)
 {
     this->start = start;
+}
+
+void Programa::insertarEstudiante(string nombres, string tipoDocumento, string apellidos, string genero, int edad, int documento)
+{
+    Estudiante *newEst = new Estudiante(nombres, tipoDocumento, apellidos, genero, edad, documento);
+
+    if (!this->getStart())
+        this->setStart(newEst);
+    else
+    {
+        Estudiante *aux = this->getStart();
+        while (aux->getNext())
+            aux = aux->getNext();
+        aux->setNext(newEst);
+    }
+}
+
+void Programa::mostrarEstudiante()
+{
+    Estudiante *aux = this->getStart();
+    while (aux)
+    {
+        cout << aux->getNombres() << "\t";
+        aux = aux->getNext();
+    }
+}
+
+int Programa::cantEstudiante()
+{
+    Estudiante *aux = this->getStart();
+    int cont = 0;
+    while (aux)
+    {
+        cont++;
+        aux = aux->getNext();
+    }
+    return cont;
 }
