@@ -15,7 +15,7 @@ class Programa
 
 public:
     Programa();
-    Programa(string, string, int, int);
+    Programa(string nombre, string area, int idPrograma, int semestres);
     ~Programa();
     string getNombre();
     string getArea();

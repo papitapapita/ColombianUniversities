@@ -1,19 +1,41 @@
 #include <iostream>
-#include "programa.cpp"
+#include <vector>
+#include <stdlib.h>
+#include <time.h>
+#include "Programa.h"
 
 using namespace std;
 
 int main()
 {
-    string nombres[50] = {
+    srand(time(NULL));
+    int doc, edad;
+    string const nombres[50] = {
         "Hugo", "Martín", "Lucas", "Mateo", "Leo", "Daniel", "Alejandro", "Pablo", "Manuel", "Álvaro", "Adrian", "David", "Mario", "Enzo", "Diego", "Marcos", "Izan", "Javier", "Marco", "Alex", "Bruno", "Oliver", "Miguel", "Thiago", "Antonio", "Lucía", "Sofía", "Martina", "María", "Julia", "Paula", "Valeria", "Emma", "Daniela", "Carla", "Alba", "Noa", "Alma", "Sara", "Carmen", "Lara", "Mia", "Valentina", "Olivia", "Claudia", "Jimena", "Lola", "Chloe", "Aitana", "Abril"};
-    string apellidos[50] = {
+    string const apellidos[50] = {
         "Álvarez", "Andrade", "Benitez", "Castillo", "Castro", "Contreras", "De León", "Díaz", "Duarte", "Espinoza", "Fernández", "Flores", "García", "Giménez", "Gómez", "Gonzáles", "Gutiérrez", "Hernández", "Jiménez", "López", "Mamani", "Mártinez", "Mejía", "Mora", "Morales", "Moreno", "Muñoz", "Pereira", "Pérez", "Pineda", "Portillo", "Ramírez", "Reyes", "Rivas", "Rivera", "Rodríguez", "Rojas", "Salazar", "Sánchez", "Santana", "Santos", "Silva", "Sosa", "Soto", "Torres", "Vargas", "Vera", "Villalba", "Zambrano", "Olivos"};
+    string const generos[2] = {
+        "Masculino", "Femenino"};
+    string const programas[15] = {
+        "Ingeniería de Sistemas", "Ingeniería Electrónica", "Veterinaria", "Medicina", "Contabilidad", "Licenciatura en Matemáticas", "Agronomía", "Ingeniería Civil", "Diseño Gráfico", "Producción Audiovisual", "Ingeniería de Telecomunicaciones", "Ingeniería Agroindustrial", "Ingeniería de Minas", "Ingeniería en Ciberseguridad", "Ingeniería Informática"};
 
+    // Crear vector de estudiantes
+    vector<Estudiante *> estudiantes;
     for (int i = 0; i < 50; i++)
     {
         for (int j = 0; j < 50; j++)
         {
+            edad = 18 + rand() % (50 - 18);
+            doc = 100000 + rand() % (999999 - 100000);
+            if (i > 24)
+                estudiantes.push_back(new Estudiante(nombres[i], "C.C.", apellidos[j], generos[1], edad, doc));
+            else
+                estudiantes.push_back(new Estudiante(nombres[i], "C.C.", apellidos[j], generos[0], edad, doc));
         }
     }
+    /*
+        vector<Programa
+        for (size_t i = 0; i < count; i++)
+        {
+}*/
 }
