@@ -1,16 +1,17 @@
 #ifndef SEDE_H
 #define SEDE_H
-#include "Programa.h"
+#include "programa.cpp"
 class Sede
 {
     Sede *next;
     Programa *start;
     string nombre;
+    string departamento;
     int idSede;
 
 public:
     Sede();
-    Sede(string, int);
+    Sede(string, string, int);
     ~Sede();
     Sede *getNext();
     void setNext(Sede *);
@@ -20,7 +21,9 @@ public:
     void setNombre(string);
     int getIdSede();
     void setIdSede(int idSede);
-    void insertarPrograma(string, string, int, int);
+    string getDepartamento();
+    void setDepartamento(string);
+    void insertarPrograma(Programa *);
     void eliminarPrograma(int);
     void mostrarProgramas();
     int cantidadProgramas();

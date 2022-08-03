@@ -5,15 +5,16 @@ using namespace std;
 
 Sede::Sede()
 {
-    nombre = "";
+    nombre = departamento = "";
     next = NULL;
     start = NULL;
     idSede = 0;
 }
 
-Sede::Sede(string nombre, int idSede)
+Sede::Sede(string nombre, string departamento, int idSede)
 {
     this->nombre = nombre;
+    this->departamento = departamento;
     this->idSede = idSede;
     next = NULL;
     start = NULL;
@@ -51,6 +52,16 @@ int Sede::getIdSede()
     return idSede;
 }
 
+string Sede::getDepartamento()
+{
+    return departamento;
+}
+
+void Sede::setDepartamento(string departamento)
+{
+    this->departamento = departamento;
+}
+
 void Sede::setNext(Sede *next)
 {
     this->next = next;
@@ -71,17 +82,19 @@ void Sede::setIdSede(int idSede)
     this->idSede = idSede;
 }
 
-void Sede::insertarPrograma(string nombre, string area, int semestres, int idPrograma)
+void Sede::insertarPrograma(Programa *pro)
 {
-    Programa *newPrograma = new Programa(nombre, area, semestres, idPrograma);
     if (!this->getStart())
-        this->setStart(newPrograma);
+        this->setStart(pro);
     else
     {
         Programa *aux = this->getStart();
-        while (aux->getNext())
+        while (aux->getNombre() != pro->getNombre() && aux->getNext() && pro->getIdPrograma() != aux->getIdPrograma())
             aux = aux->getNext();
-        aux->setNext(newPrograma);
+        if (aux->getNombre() != pro->getNombre() && aux->getIdPrograma() != pro->getIdPrograma())
+            aux->setNext(pro);
+        else
+            cout << "Programa ya existe\n";
     }
 }
 
@@ -111,7 +124,7 @@ void Sede::mostrarProgramas()
     Programa *aux = this->getStart();
     while (aux)
     {
-        cout << aux->getNombre() << "\t";
+        cout << aux->getNombre() << "\t " << aux->getArea() << "\t " << aux->getIdPrograma() << endl;
         aux = aux->getNext();
     }
 }

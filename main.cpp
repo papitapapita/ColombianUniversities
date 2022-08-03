@@ -2,7 +2,7 @@
 #include <vector>
 #include <stdlib.h>
 #include <time.h>
-#include "programa.cpp"
+#include "Multilist.cpp"
 
 using namespace std;
 
@@ -23,9 +23,14 @@ int main()
         "Odontología", "Veterinaria", "Medicina", "Fisioterapia", "Enfermería"};
     string const programasAdministracion[5] = {
         "Mercadeo", "Administración de empresas", "Contaduría", "Administración pública", "Economía"};
+    string const departamentos[10] = {
+        "Cundinamarca", "Meta", "Boyacá", "Antioquia", "Nariño"};
+    string const nombresSedes[10] = {
+        "Sede Cundinamarca", "Sede Meta", "Sede Boyacá", "Sede Antioquia", "Sede Nariño"};
 
     // Crear vector de estudiantes
-    vector<Estudiante *> estudiantes;
+    vector<Estudiante *>
+        estudiantes;
     for (int i = 0; i < 50; i++)
     {
         for (int j = 0; j < 50; j++)
@@ -62,11 +67,41 @@ int main()
         else
             programas.push_back(new Programa(programasAdministracion[i], "Administración", aux, aux2));
     }
-    /*
-        for (int i = 0; i < programas.size(); i++)
+
+    int cont = 0;
+
+    for (int i = 0; i < programas.size(); i++)
+    {
+        for (int j = 0; j < (estudiantes.size() / programas.size()); j++)
         {
-            for (int j = 0; j < (estudiantes.size() / programas.size()); i++)
-            {
-            }
-        }*/
+            programas[i]->insertarEstudiante(estudiantes[cont]);
+            cont++;
+        }
+        programas[i]->mostrarEstudiante();
+    }
+
+    vector<Sede *> sedes;
+    for (int i = 0; i < departamentos->size(); i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            aux = 1000 + rand() % (9999 - 1000);
+            sedes.push_back(new Sede(nombresSedes[i], departamentos[i], aux));
+        }
+        sedes[i]->getNombre();
+    }
+
+    cont = 0;
+    for (int i = 0; i < sedes.size() - 1; i++)
+    {
+        for (int j = 0; j < programas.size() / sedes.size(); j++)
+        {
+            sedes[i]->insertarPrograma(programas[cont]);
+            cont++;
+        }
+        sedes[i]->mostrarProgramas();
+    }
+
+    /*
+        vector<Universidad *>*/
 }

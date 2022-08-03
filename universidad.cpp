@@ -68,9 +68,8 @@ void Universidad::setNext(Universidad *next)
     this->next = next;
 }
 
-void Universidad::insertarSede(string nombre, int idSede)
+void Universidad::insertarSede(Sede *newSede)
 {
-    Sede *newSede = new Sede(nombre, idSede);
     if (!this->getStart())
         this->setStart(newSede);
     else

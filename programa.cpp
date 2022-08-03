@@ -55,6 +55,16 @@ Estudiante *Programa::getStart()
     return start;
 }
 
+int Programa::getIdPrograma()
+{
+    return idPrograma;
+}
+
+void Programa::setIdPrograma(int idPrograma)
+{
+    this->idPrograma = idPrograma;
+}
+
 void Programa::setNombre(string nombre)
 {
     this->nombre = nombre;
@@ -80,21 +90,20 @@ void Programa::setStart(Estudiante *start)
     this->start = start;
 }
 
-void Programa::insertarEstudiante(string nombres, string tipoDocumento, string apellidos, string genero, int edad, int documento)
+void Programa::insertarEstudiante(Estudiante *newEst)
 {
-    Estudiante *newEst = new Estudiante(nombres, tipoDocumento, apellidos, genero, edad, documento);
 
     if (!this->getStart())
         this->setStart(newEst);
     else
     {
         Estudiante *aux = this->getStart();
-        while (aux->getDocumento() != documento && aux->getNext())
+        while (aux->getDocumento() != newEst->getDocumento() && aux->getNext())
             aux = aux->getNext();
-        if (aux->getDocumento() != documento)
+        if (aux->getDocumento() != newEst->getDocumento())
             aux->setNext(newEst);
         else
-            cout << "Estudiante ya existe";
+            cout << "Estudiante ya existe\n";
     }
 }
 
@@ -103,7 +112,7 @@ void Programa::mostrarEstudiante()
     Estudiante *aux = this->getStart();
     while (aux)
     {
-        cout << aux->getNombres() << "\t";
+        cout << aux->getDocumento() << "\t\t" << aux->getApellidos() << "\t\t" << aux->getNombres() << endl;
         aux = aux->getNext();
     }
 }

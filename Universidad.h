@@ -23,7 +23,7 @@ public:
     void setIdUniverisdad(int);
     void setStart(Sede *);
     void setNext(Universidad *);
-    void insertarSede(string, int);
+    void insertarSede(Sede *);
     void eliminarSede(int);
     void mostrarSedes();
     int cantidadSedes();

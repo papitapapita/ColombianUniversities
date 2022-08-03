@@ -29,7 +29,7 @@ public:
     void setNext(Programa *);
     void setStart(Estudiante *);
     void setIdPrograma(int);
-    void insertarEstudiante(string, string, string, string, int, int);
+    void insertarEstudiante(Estudiante *);
     void mostrarEstudiante();
     int cantEstudiante();
 };
