@@ -4,12 +4,16 @@ Universidad::Universidad()
 {
     nombre = "";
     idUniversidad = 0;
+    next = NULL;
+    start = NULL;
 }
 
 Universidad::Universidad(string nombre, int idUniversidad)
 {
     this->nombre = nombre;
     this->idUniversidad = idUniversidad;
+    next = NULL;
+    start = NULL;
 }
 
 Universidad::~Universidad()

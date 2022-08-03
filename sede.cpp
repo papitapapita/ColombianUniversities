@@ -14,9 +14,9 @@ Sede::Sede()
 Sede::Sede(string nombre, int idSede)
 {
     this->nombre = nombre;
-    this->next = next;
-    this->start = start;
     this->idSede = idSede;
+    next = NULL;
+    start = NULL;
 }
 
 Sede::~Sede()
