@@ -12,14 +12,15 @@ Nota::Nota()
 Nota::Nota(float nota)
 {
     this->nota = nota;
+    this->next = NULL;
 }
 
-float Nota::getNota() const
+float Nota::getNota()
 {
     return nota;
 }
 
-Nota *Nota::getNext() const
+Nota *Nota::getNext()
 {
     return next;
 }

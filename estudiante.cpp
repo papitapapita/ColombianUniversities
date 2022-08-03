@@ -133,14 +133,27 @@ void Estudiante::insertarNota(float nota)
     }
 }
 
-void Estudiante::mostrarNotas()
+void Estudiante::printNotas()
 {
     Nota *aux = this->getStart();
+    /*cout << aux->getNota() << endl;
+    aux = aux->getNext();
+    cout << aux->getNota() << endl;
+    aux = aux->getNext();
+    cout << aux->getNota() << endl;
+    aux = aux->getNext();*/
+
     while (aux)
     {
-        cout << aux->getNota() << "\t";
+        if (aux == NULL)
+            break;
+        cout << aux->getNota() << endl;
         aux = aux->getNext();
     }
+    /*
+        while (aux != NULL)
+        {
+        }*/
 }
 
 void Estudiante::eliminarNota(float value)

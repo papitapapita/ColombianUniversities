@@ -10,8 +10,8 @@ public:
     ~Nota();
     Nota();
     Nota(float);
-    float getNota() const;
-    Nota *getNext() const;
+    float getNota();
+    Nota *getNext();
     void setNota(float);
     void setNext(Nota *);
 };
