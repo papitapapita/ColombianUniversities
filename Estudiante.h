@@ -36,7 +36,7 @@ public:
     void setNext(Estudiante *);
     void setStart(Nota *);
     void insertarNota(float);
-    void printNotas();
+    void mostrarNotas();
     void eliminarNota(float);
 };
 
