@@ -75,9 +75,12 @@ void Universidad::insertarSede(Sede *newSede)
     else
     {
         Sede *aux = this->getStart();
-        while (aux->getNext())
+        while (aux->getNombre() != newSede->getNombre() && aux->getIdSede() != aux->getIdSede() && aux->getNext())
             aux = aux->getNext();
-        aux->setNext(newSede);
+        if (aux->getNombre() != newSede->getNombre() && aux->getIdSede() != newSede->getIdSede())
+            aux->setNext(newSede);
+        else
+            cout << "Sede ya existe\n";
     }
 }
 
@@ -107,7 +110,7 @@ void Universidad::mostrarSedes()
     Sede *aux = this->getStart();
     while (aux)
     {
-        cout << aux->getNombre() << "\t";
+        cout << aux->getNombre() << "\t" << aux->getDepartamento() << "\t" << aux->getIdSede() << "\t" << endl;
         aux = aux->getNext();
     }
 }

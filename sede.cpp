@@ -124,7 +124,7 @@ void Sede::mostrarProgramas()
     Programa *aux = this->getStart();
     while (aux)
     {
-        cout << aux->getNombre() << "\t " << aux->getArea() << "\t " << aux->getIdPrograma() << endl;
+        cout << aux->getNombre() << "\t\t\t " << aux->getArea() << "\t\t " << aux->getIdPrograma() << endl;
         aux = aux->getNext();
     }
 }
