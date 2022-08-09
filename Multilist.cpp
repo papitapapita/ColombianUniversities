@@ -109,6 +109,18 @@ void Multilist::demandaArea()
 
 void Multilist::sedesUniversidad()
 {
+    int cont=0;
+    Universidad *auxUni = this->getHead();
+    while(auxUni){
+        Sede *auxSed = auxUni -> getStart();
+        while(auxSed){
+            auxSed = auxSed->getNext();
+            cont++;
+        }
+        cout << auxUni->getNombre() << cont << endl ;
+        auxUni = auxUni ->getNext();
+        cont = 0;
+    }
 }
 
 Universidad *Multilist::buscarUni(string nombreU)
@@ -122,20 +134,12 @@ Universidad *Multilist::buscarUni(string nombreU)
 
 Sede *Multilist::buscarSede(string nombreU, string nombreSede)
 {
-    Sede *aux=buscarUniversidad(universidad->getStart());
-    while(aux->getNombre()!=nombreSede&&aux!=NULL){
-        aux=aux->getNext();
-    }
-    return aux;
+    return NULL;
 }
 
 Programa *Multilist::buscarPrograma(string nombreU, string nombreSede, string nombrePrograma)
 {
-    Programa *actual=buscarSede(nombreSede,nombreU)->getStart();
-	while(actual->getNombre()!=nombrePrograma&&actual!=NULL){
-		actual=actual->getNext();
-	}
-    return actual;
+    return NULL;
 }
 
 Estudiante *Multilist::buscarEstudiante(string nombreU, string nombreSede, string nombrePrograma, int idEstudiante)
