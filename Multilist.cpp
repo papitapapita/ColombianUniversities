@@ -28,8 +28,12 @@ void Multilist::insertarSede(int universidad, Sede *sede)
 void Multilist::insertarPrograma(int universidadId, int sedeId, Programa *programa)
 {
 }
-void Multilist::insertarEstudiante(int universidadId, int sedeId, int programaId, Estudiante *estudianteId)
+void Multilist::insertarEstudiante(string universidad,string sede,string programa, Estudiante *estudianteId)
 {
+    Programa *busq=buscarSede(universidad,sede);
+    if(busq){
+        busq->insertarEstudiante(estudianteId);
+    }
 }
 void Multilist::insertarNota(int universidadId, int sedeId, int programaId, int estudianteId, Nota *nota)
 {
