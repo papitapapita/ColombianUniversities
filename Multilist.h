@@ -16,6 +16,7 @@ public:
     Programa *buscarPrograma(string nombreU, string nombreSede, string nombrePrograma);
     Estudiante *buscarEstudiante(string nombreU, string nombreSede, string nombrePrograma, int idEstudiante);
     void insertarUniversidad(Universidad *);                                                                            // Jonathan
+    void insertarUniversidadOrder(Universidad *);                                                                            // Jonathan
     void insertarSede(int universidad, Sede *sede);                                                                     // Jonathan
     void insertarPrograma(int universidadId, int sedeId, Programa *programa);                                           // Miguel
     void insertarEstudiante(int universidadId, int sedeId, int programaId, Estudiante *estudianteId);                   // Santiago
