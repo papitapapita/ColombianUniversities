@@ -11,16 +11,20 @@ public:
     Multilist();
     ~Multilist(); // Jhon
     void setHead(Universidad *head);
-    void insertarUniversidad();                                                                                          // Jonathan
-    void insertarSede();                                                                                                 // Jonathan
-    void insertarPrograma();                                                                                             // Miguel
-    void insertarEstudiante();                                                                                           // Santiago
-    void insertarNota();                                                                                                 // Jhon
-    void eliminarUniversidad();                                                                                          // Jonathan
-    void eliminarSede();                                                                                                 // Jonathan
-    void eliminarPrograma();                                                                                             // Miguel
-    void eliminarEstudiante();                                                                                           // Santiago
-    void eliminarNota();                                                                                                 // Jhon
+    Universidad *buscarUni(string nombreU); //
+    Sede *buscarSede(string nombreU, string nombreSede);
+    Programa *buscarPrograma(string nombreU, string nombreSede, string nombrePrograma);
+    Estudiante *buscarEstudiante(string nombreU, string nombreSede, string nombrePrograma, string nombreEstudiante);
+    void insertarUniversidad(Universidad *);                                                                             // Jonathan
+    void insertarSede(int universidad, Sede *sede);                                                                      // Jonathan
+    void insertarPrograma(int universidadId, int sedeId, Programa *programa);                                            // Miguel
+    void insertarEstudiante(int universidadId, int sedeId, int programaId, Estudiante *estudianteId);                    // Santiago
+    void insertarNota(int universidadId, int sedeId, int programaId, int estudianteId, Nota *nota);                      // Jhon
+    void eliminarUniversidad(int universidadId);                                                                         // Jonathan
+    void eliminarSede(int universidadId, int sedeId, int programaId);                                                    // Jonathan
+    void eliminarPrograma(int universidadId, int sedeId, int programaId);                                                // Miguel
+    void eliminarEstudiante(int universidadId, int sedeId, int programaId, int estudianteId);                            // Santiago
+    void eliminarNota(int universidadId, int sedeId, int programaId, int estudianteId, int nota);                        // Jhon
     void reportePersonalizado(string departamento, string universidad, string sede, string programa, string estudiante); // Jonathan
     void reportePersonalizado(string departamento, string universidad, string sede, string programa);                    // Miguel
     void reportePersonalizado(string departamento, string universidad, string sede);                                     // Santiago
