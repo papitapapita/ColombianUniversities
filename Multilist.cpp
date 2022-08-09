@@ -131,11 +131,16 @@ Programa *Multilist::buscarPrograma(string nombreU, string nombreSede, string no
 {
 }
 
-Estudiante *Multilist::buscarEstudiante(string nombreU, string nombreSede, string nombrePrograma, string nombreEstudiante)
+Estudiante *Multilist::buscarEstudiante(string nombreU, string nombreSede, string nombrePrograma, int idEstudiante)
 {
     Universidad *aux = buscarUni(nombreU);
     Sede *aux2 = buscarSede(nombreU, nombreSedde);
     Programa *aux3 = buscarPrograma(nombreU, o rnombreSede, nombrePrograma);
     Estudiante *aux = aux3->getStart();
-    while (aux)
+    while (aux3->getId() != idEstudiante)
+        aux3->getNext();
+    if (aux3->getId() == idEstudiante)
+        return aux3;
+    else
+        return NULL;
 }
