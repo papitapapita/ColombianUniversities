@@ -109,7 +109,11 @@ void Multilist::sedesUniversidad()
 
 Universidad *Multilist::buscarUni(string nombreU)
 {
-    return NULL;
+    Universidad *aux=this->getHead();
+    while(aux->getNombre()!=nombreU&&aux!=NULL){
+        aux=aux->getNext();
+    }
+    return aux;
 }
 
 Sede *Multilist::buscarSede(string nombreU, string nombreSede)
