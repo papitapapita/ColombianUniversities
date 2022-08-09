@@ -11,7 +11,7 @@ public:
     Multilist();
     ~Multilist(); // Jhon
     void setHead(Universidad *head);
-    Universidad *buscarUni(string nombreU); //
+    Universidad *buscarUniversidad(string nombreU); //
     Sede *buscarSede(string nombreU, string nombreSede);
     Programa *buscarPrograma(string nombreU, string nombreSede, string nombrePrograma);
     Estudiante *buscarEstudiante(string nombreU, string nombreSede, string nombrePrograma, int idEstudiante);

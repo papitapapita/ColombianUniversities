@@ -71,14 +71,20 @@ void Universidad::setNext(Universidad *next)
 void Universidad::insertarSede(Sede *newSede)
 {
     if (!this->getStart())
+    {
         this->setStart(newSede);
+        cout << "Sede insertada";
+    }
     else
     {
         Sede *aux = this->getStart();
-        while (aux->getNombre() != newSede->getNombre() && aux->getIdSede() != aux->getIdSede() && aux->getNext())
+        while (aux->getIdSede() != newSede->getIdSede() && aux->getNext())
             aux = aux->getNext();
-        if (aux->getNombre() != newSede->getNombre() && aux->getIdSede() != newSede->getIdSede())
+        if (aux->getIdSede() != newSede->getIdSede())
+        {
             aux->setNext(newSede);
+            cout << "Sede insertada";
+        }
         else
             cout << "Sede ya existe\n";
     }
