@@ -109,38 +109,53 @@ void Multilist::demandaArea()
 
 void Multilist::sedesUniversidad()
 {
-    int cont;
+    int cont=0;
     Universidad *auxUni = this->getHead();
     while(auxUni){
-        
+        Sede *auxSed = auxUni -> getStart();
+        while(auxSed){
+            auxSed = auxSed->getNext();
+            cont++;
+        }
         cout << auxUni->getNombre() << cont << endl ;
         auxUni = auxUni ->getNext();
         cont = 0;
     }
 }
 
-Universidad *Multilist::buscarUni(string nombreU)
+Universidad *Multilist::buscarUniversidad(string nombreU)
 {
-    Universidad *aux=this->getHead();
-    while(aux->getNombre()!=nombreU&&aux!=NULL){
-        aux=aux->getNext();
+    Universidad *aux = this->getHead();
+    while (aux->getNombre() != nombreU && aux != NULL)
+    {
+        aux = aux->getNext();
     }
     return aux;
 }
 
 Sede *Multilist::buscarSede(string nombreU, string nombreSede)
 {
-    return NULL;
+    Sede *aux = buscarUniversidad(nombreU)->getStart();
+    while (aux->getNombre() != nombreSede && aux != NULL)
+    {
+        aux = aux->getNext();
+    }
+    return aux;
 }
 
 Programa *Multilist::buscarPrograma(string nombreU, string nombreSede, string nombrePrograma)
 {
-    return NULL;
+    Programa *actual = buscarSede(nombreSede, nombreU)->getStart();
+    while (actual->getNombre() != nombrePrograma && actual != NULL)
+    {
+        actual = actual->getNext();
+    }
+    return actual;
 }
 
 Estudiante *Multilist::buscarEstudiante(string nombreU, string nombreSede, string nombrePrograma, int idEstudiante)
 {
-    Universidad *aux = buscarUni(nombreU);
+    Universidad *aux = buscarUniversidad(nombreU);
     Sede *aux2 = buscarSede(nombreU, nombreSede);
     Programa *aux3 = buscarPrograma(nombreU, nombreSede, nombrePrograma);
     Estudiante *aux4 = aux3->getStart();
