@@ -84,14 +84,55 @@ void llenado()
         // programas[i]->mostrarEstudiante();
     }
 
+    vector<Sede *> meta;
+    vector<Sede *> cundinamarca;
+    vector<Sede *> boyaca;
+    vector<Sede *> antioquia;
+    vector<Sede *> bolivar;
     vector<Sede *> sedes;
-    for (int i = 0; i < 6; i++)
+
+    sedes.push_back(new Sede("Universidad de los Andes sede Cundinamarca", "Cundinamarca", 10510155));
+    sedes.push_back(new Sede("Universidad de los Nacional sede Cundinamarca", "Cundinamarca", 54123412));
+    sedes.push_back(new Sede("Universidad Distrital sede Cundinamarca", "Cundinamarca", 332312));
+    sedes.push_back(new Sede("Universidad de los Llanos sede Meta", "Meta", 1231831));
+    sedes.push_back(new Sede("Universidad Cooperativa", "Meta", 519821));
+    sedes.push_back(new Sede("Universidad Nacional sede Meta", "Meta", 45198));
+    sedes.push_back(new Sede("Universidad Nacional sede Boyaca", "Boyaca", 1561781));
+    sedes.push_back(new Sede("Universidad de Boyaca sede Boyaca", "Boyaca", 87410987));
+    sedes.push_back(new Sede("Universidad de Cooperativa sede Boyaca", "Boyaca", 1987198));
+    sedes.push_back(new Sede("Universidad de Antioquia sede Antioquia", "Antioquia", 4148189));
+    sedes.push_back(new Sede("Universidad de Cooperativa sede Antioquia", "Antioquia", 6881289));
+    sedes.push_back(new Sede("Universidad Nacional sede Antioquia", "Antioquia", 1787911));
+    sedes.push_back(new Sede("Universidad del Caribe sede Bolivar", "Bolivar", 18976));
+    sedes.push_back(new Sede("Universidad Nacional sede Bolivar", "Bolivar", 658412));
+    sedes.push_back(new Sede("Universidad de Antioquia sede Bolivar", "Bolivar", 1981653));
+    //"Universidad de los Andes", "Universidad de los Llanos", "Universidad Nacional", "Universidad Cooperativa", "Universidad Javeriana"
+    cont = 0;
+    for (int i = 0; i < sedes.size(); i++)
     {
-        for (int j = 0; j < 3; j++)
+        switch (i)
         {
-            aux = 1000 + rand() % (9999 - 1000);
-            sedes.push_back(new Sede(nombresSedes[i], departamentos[i], aux));
+        case 0:
+            cundinamarca.push_back(sedes[cont]);
+            break;
+        case 1:
+            meta.push_back(sedes[cont]);
+            break;
+        case 2:
+            boyaca.push_back(sedes[cont]);
+            break;
+        case 3:
+            antioquia.push_back(sedes[cont]);
+            break;
+        case 4:
+            bolivar.push_back(sedes[cont]);
+            break;
         }
+    }
+
+    for (int i = 0; i < meta.size(); i++)
+    {
+        cout << i + 1 << ". " << meta[i]->getNombre() << "\t" << meta[i]->getIdSede() << endl;
     }
 
     for (int i = 0; i < programas.size(); i++)
@@ -117,7 +158,8 @@ void llenado()
         sedes[i]->mostrarProgramas();
     }
 
-    vector<Universidad *> universidades;
+    vector<Universidad *>
+        universidades;
 
     for (int i = 0; i < 5; i++)
     {
@@ -130,30 +172,20 @@ void llenado()
         cout << universidades[i]->getNombre() << endl;
         universidades[i]->mostrarSedes();
     }
-
-    for (int i = 0; i < sedes.size(); i++)
-    {
-        cout << sedes[i]->getNombre() << endl;
-    }
-
-    cont = 0;
-    for (int i = 0; i < universidades.size(); i++) // i = 3 < 5
-    {
-
-        for (int j = 0; j < 3; j++) // j = 2
-        {
-            universidades[i]->insertarSede(sedes[cont]);
-            cont += 3;
-        }
-        if (i == 0)
-            cont = 1;
-        else if (i == 1)
-            cont = 2;
-        else if (i == 3)
-            cont = 9;
-        else if (i == 4)
-            cont = 10;
-        cout << universidades[i]->getNombre() << endl;
-        universidades[i]->mostrarSedes();
-    }
+    /*
+        universidades[0].insert(sedes);
+        universidades[0].insert();
+        universidades[0].insert();
+        universidades[1].insert();
+        universidades[1].insert();
+        universidades[1].insert();
+        universidades[2].insert();
+        universidades[2].insert();
+        universidades[2].insert();
+        universidades[3].insert();
+        universidades[3].insert();
+        universidades[3].insert();
+        universidades[4].insert();
+        universidades[4].insert();
+        universidades[4].insert();*/
 }
