@@ -2,5 +2,6 @@
 
 int main()
 {
+    llenado();
     return 0;
 }

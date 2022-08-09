@@ -6,8 +6,7 @@
 #include "Multilist.cpp"
 
 using namespace std;
-
-int main()
+void llenado()
 {
     srand(time(NULL));
     int aux2, aux, cont2;
@@ -111,12 +110,12 @@ int main()
             cont++;
         }
     }
-    /*
+
     for (int i = 0; i < sedes.size(); i++)
     {
         cout << sedes[i]->getNombre() << endl;
         sedes[i]->mostrarProgramas();
-    }*/
+    }
 
     vector<Universidad *> universidades;
 

@@ -19,13 +19,11 @@ void Multilist::insertarUniversidad(Universidad *uni)
         Universidad *aux = this->getHead();
         while (aux->getNext() && aux->getIdUniversidad() != uni->getIdUniversidad() && aux->getNombre() != aux->getNombre())
             aux = aux->getNext();
-        if (aux->getIdUniversidad() != uni->getIdUniversidad() &&)
+        // if (aux->getIdUniversidad() != uni->getIdUniversidad() &&)
     }
 }
 void Multilist::insertarSede(int universidad, Sede *sede)
 {
-
-    while (aux)
 }
 void Multilist::insertarPrograma(int universidadId, int sedeId, Programa *programa)
 {
@@ -52,23 +50,12 @@ void Multilist::eliminarNota(int universidadId, int sedeId, int programaId, int 
 {
 }
 
-void Multilist::reportePersonalizado(string departamento, string universidad, string sede, string programa, string estudiante)
+void Multilist::reportePersonalizado(string departamento, string universidad, string sede, string programa, int idEstudiante)
 {
-    Universidad *aux = this->getHead();
-    Sede *aux2 = aux->getStart();
-    Programa *aux3 = aux2->getStart();
-    Estudiante *aux4 = aux3->getStart();
-    Nota *while (aux)
+    Estudiante *aux = buscarEstudiante(universidad, sede, programa, idEstudiante);
+    Nota *aux2 = aux->getStart();
+    while (aux2)
     {
-        while (aux2)
-        {
-            while (aux3)
-            {
-                while (aux4)
-                {
-                }
-            }
-        }
     }
 }
 
@@ -122,25 +109,29 @@ void Multilist::sedesUniversidad()
 
 Universidad *Multilist::buscarUni(string nombreU)
 {
+    return NULL;
 }
-Universidad *Multilist::buscarSede(string nombreU, string nombreSede)
+
+Sede *Multilist::buscarSede(string nombreU, string nombreSede)
 {
+    return NULL;
 }
 
 Programa *Multilist::buscarPrograma(string nombreU, string nombreSede, string nombrePrograma)
 {
+    return NULL;
 }
 
 Estudiante *Multilist::buscarEstudiante(string nombreU, string nombreSede, string nombrePrograma, int idEstudiante)
 {
     Universidad *aux = buscarUni(nombreU);
-    Sede *aux2 = buscarSede(nombreU, nombreSedde);
-    Programa *aux3 = buscarPrograma(nombreU, o rnombreSede, nombrePrograma);
-    Estudiante *aux = aux3->getStart();
-    while (aux3->getId() != idEstudiante)
-        aux3->getNext();
-    if (aux3->getId() == idEstudiante)
-        return aux3;
+    Sede *aux2 = buscarSede(nombreU, nombreSede);
+    Programa *aux3 = buscarPrograma(nombreU, nombreSede, nombrePrograma);
+    Estudiante *aux4 = aux3->getStart();
+    while (aux4->getDocumento() != idEstudiante)
+        aux4->getNext();
+    if (aux4->getDocumento() == idEstudiante)
+        return aux4;
     else
         return NULL;
 }
