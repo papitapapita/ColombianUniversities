@@ -11,11 +11,12 @@ public:
     Multilist();
     ~Multilist(); // Jhon
     void setHead(Universidad *head);
-    Universidad *buscarUni(string nombreU); //
+    Universidad *buscarUniversidad(string nombreU); //
     Sede *buscarSede(string nombreU, string nombreSede);
     Programa *buscarPrograma(string nombreU, string nombreSede, string nombrePrograma);
     Estudiante *buscarEstudiante(string nombreU, string nombreSede, string nombrePrograma, int idEstudiante);
     void insertarUniversidad(Universidad *);                                                                            // Jonathan
+    void insertarUniversidadOrder(Universidad *);                                                                            // Jonathan
     void insertarSede(int universidad, Sede *sede);                                                                     // Jonathan
     void insertarPrograma(int universidadId, int sedeId, Programa *programa);                                           // Miguel
     void insertarEstudiante(string universidad,string sede,string programa, Estudiante *estudianteId);                   // Santiago
