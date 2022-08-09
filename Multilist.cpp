@@ -109,17 +109,29 @@ void Multilist::sedesUniversidad()
 
 Universidad *Multilist::buscarUni(string nombreU)
 {
-    return NULL;
+    Universidad *aux=this->getHead();
+    while(aux->getNombre()!=nombreU&&aux!=NULL){
+        aux=aux->getNext();
+    }
+    return aux;
 }
 
 Sede *Multilist::buscarSede(string nombreU, string nombreSede)
 {
-    return NULL;
+    Sede *aux=buscarUniversidad(universidad->getStart());
+    while(aux->getNombre()!=nombreSede&&aux!=NULL){
+        aux=aux->getNext();
+    }
+    return aux;
 }
 
 Programa *Multilist::buscarPrograma(string nombreU, string nombreSede, string nombrePrograma)
 {
-    return NULL;
+    Programa *actual=buscarSede(nombreSede,nombreU)->getStart();
+	while(actual->getNombre()!=nombrePrograma&&actual!=NULL){
+		actual=actual->getNext();
+	}
+    return actual;
 }
 
 Estudiante *Multilist::buscarEstudiante(string nombreU, string nombreSede, string nombrePrograma, int idEstudiante)
