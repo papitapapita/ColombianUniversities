@@ -99,6 +99,19 @@ void Multilist::reportePersonalizado(string departamento, string universidad)
 
 void Multilist::reportePersonalizado(string departamento)
 {
+     Universidad *aux=this->getHead();
+    Sede *aux1=NULL;
+    while(aux){
+        aux1=aux->getStart();
+        while(aux1){
+            if(aux1->getDepartamento()==departamento){             
+                cout<<aux1->getNombre()<<endl;
+            }
+            aux1=aux1->getNext();
+        }
+        aux=aux->getNext();
+        
+    }
 }
 
 void Multilist::reportePersonalizado()
