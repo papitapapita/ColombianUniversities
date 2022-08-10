@@ -19,7 +19,7 @@ public:
     void insertarUniversidadOrder(Universidad *);                                                                            // Jonathan
     void insertarSede(int universidad, Sede *sede);                                                                     // Jonathan
     void insertarPrograma(int universidadId, int sedeId, Programa *programa);                                           // Miguel
-    void insertarEstudiante(int universidadId, int sedeId, int programaId, Estudiante *estudianteId);                   // Santiago
+    void insertarEstudiante(string universidad,string sede,string programa, Estudiante *estudianteId);                   // Santiago
     void insertarNota(int universidadId, int sedeId, int programaId, int estudianteId, Nota *nota);                     // Jhon
     void eliminarUniversidad(int universidadId);                                                                        // Jonathan
     void eliminarSede(int universidadId, int sedeId, int programaId);                                                   // Jonathan
