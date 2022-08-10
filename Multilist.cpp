@@ -293,6 +293,25 @@ void Multilist::porcenEdades()
 
 void Multilist::demandaCarr()
 {
+    Universidad *uniX = this->getHead();
+    while (uniX)
+    {
+        cout << "------" << uniX->getNombre() << "------" << endl;
+        Sede *sedeX = uniX->getStart();
+        while (sedeX)
+        {
+            Programa *progX = sedeX->getStart();
+
+            while (progX)
+            {
+
+                cout << progX->getNombre() << " Demanda de " << progX->cantidadEstudiantes() << endl;
+                progX = progX->getNext();
+            }
+            sedeX = sedeX->getNext();
+        }
+        uniX = uniX->getNext();
+    }
 }
 
 void Multilist::porcentGenero()
