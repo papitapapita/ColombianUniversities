@@ -129,6 +129,16 @@ void Sede::mostrarProgramas()
     }
 }
 
+void Sede::mostrarNombresProgramas()
+{
+    Programa *aux = this->getStart();
+    for (int i = 0; aux; i++)
+    {
+        cout << i + 1 << ". " << aux->getNombre() << endl;
+        aux = aux->getNext();
+    }
+}
+
 int Sede::cantidadProgramas()
 {
     Programa *aux = this->getStart();
@@ -139,4 +149,13 @@ int Sede::cantidadProgramas()
         aux = aux->getNext();
     }
     return cantidad;
+}
+
+Programa *Sede::buscarPrograma(int indice)
+{
+    Programa *aux = this->getStart();
+    for (int i = 0; i < indice; i++)
+        aux = aux->getNext();
+
+    return aux;
 }

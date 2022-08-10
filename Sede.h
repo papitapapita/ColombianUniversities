@@ -26,7 +26,9 @@ public:
     void insertarPrograma(Programa *);
     void eliminarPrograma(int);
     void mostrarProgramas();
+    void mostrarNombresProgramas();
     int cantidadProgramas();
+    Programa *buscarPrograma(int indice);
 };
 
 #endif

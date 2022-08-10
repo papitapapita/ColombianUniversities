@@ -121,6 +121,24 @@ void Universidad::mostrarSedes()
     }
 }
 
+void Universidad::mostrarNombreSedes()
+{
+    Sede *aux = this->getStart();
+    for (int i = 0; aux; i++)
+    {
+        cout << i + 1 << ". " << aux->getNombre() << endl;
+        aux = aux->getNext();
+    }
+}
+
+Sede *Universidad::buscarSedeInd(int indice)
+{
+    Sede *aux = this->getStart();
+    for (int i = 0; i < indice; i++)
+        aux = aux->getNext();
+    return aux;
+}
+
 int Universidad::cantidadSedes()
 {
     Sede *aux = this->getStart();

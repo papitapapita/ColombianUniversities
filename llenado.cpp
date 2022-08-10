@@ -5,6 +5,19 @@
 #include <string.h>
 #include "Multilist.cpp"
 
+Multilist *m = new Multilist();
+vector<Sede *> meta;
+vector<Sede *> cundinamarca;
+vector<Sede *> boyaca;
+vector<Sede *> antioquia;
+vector<Sede *> bolivar;
+vector<Sede *> sedes;
+vector<Universidad *> unisMeta;
+vector<Universidad *> unisCundinamarca;
+vector<Universidad *> unisBoyaca;
+vector<Universidad *> unisBolivar;
+vector<Universidad *> unisAntioquia;
+
 using namespace std;
 void llenado()
 {
@@ -79,13 +92,6 @@ void llenado()
         }
         // programas[i]->mostrarEstudiante();
     }
-
-    vector<Sede *> meta;
-    vector<Sede *> cundinamarca;
-    vector<Sede *> boyaca;
-    vector<Sede *> antioquia;
-    vector<Sede *> bolivar;
-    vector<Sede *> sedes;
 
     sedes.push_back(new Sede("Universidad de los Andes sede Cundinamarca", "Cundinamarca", 10510155));
     sedes.push_back(new Sede("Universidad Nacional sede Cundinamarca", "Cundinamarca", 54123412));
@@ -227,12 +233,6 @@ void llenado()
         universidades[i]->mostrarSedes();
         cout << "---------" << endl;
     }
-
-    vector<Universidad *> unisMeta;
-    vector<Universidad *> unisCundinamarca;
-    vector<Universidad *> unisBoyaca;
-    vector<Universidad *> unisBolivar;
-    vector<Universidad *> unisAntioquia;
     unisMeta.push_back(universidades[1]);
     unisMeta.push_back(universidades[2]);
     unisMeta.push_back(universidades[3]);
@@ -247,4 +247,8 @@ void llenado()
     unisAntioquia.push_back(universidades[5]);
     unisAntioquia.push_back(universidades[3]);
     unisAntioquia.push_back(universidades[2]);
+
+    m->setHead(universidades[0]);
+    for (int i = 1; i < universidades.size(); i++)
+        m->insertarUniversidad(universidades[i]);
 }

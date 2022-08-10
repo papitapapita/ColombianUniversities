@@ -31,7 +31,9 @@ public:
     void setIdPrograma(int);
     void insertarEstudiante(Estudiante *);
     void mostrarEstudiante();
-    int cantEstudiante();
+    void mostrarNombresEstudiante();
+    Estudiante *buscarEstudiante(int indice);
+    int cantidadEstudiantes();
 };
 
 #endif
