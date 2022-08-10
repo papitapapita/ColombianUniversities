@@ -117,7 +117,25 @@ void Programa::mostrarEstudiante()
     }
 }
 
-int Programa::cantEstudiante()
+void Programa::mostrarNombresEstudiante()
+{
+    Estudiante *aux = this->getStart();
+    for (int i = 0; aux; i++)
+    {
+        cout << i + 1 << ". " << aux->getNombres() << " " << aux->getApellidos() << endl;
+        aux = aux->getNext();
+    }
+}
+
+Estudiante *Programa::buscarEstudiante(int indice)
+{
+    Estudiante *aux = this->getStart();
+    for (int i = 0; i < indice; i++)
+        aux = aux->getNext();
+    return aux;
+}
+
+int Programa::cantidadEstudiantes()
 {
     Estudiante *aux = this->getStart();
     int cont = 0;

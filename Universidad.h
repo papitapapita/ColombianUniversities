@@ -26,7 +26,9 @@ public:
     void insertarSede(Sede *);
     void eliminarSede(int);
     void mostrarSedes();
+    void mostrarNombreSedes();
     int cantidadSedes();
+    Sede *buscarSedeInd(int indice);
 };
 
 #endif

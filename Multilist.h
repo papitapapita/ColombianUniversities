@@ -30,6 +30,7 @@ public:
     void reportePersonalizado(string departamento, string universidad, string sede, string programa);                   // Miguel
     void reportePersonalizado(string departamento, string universidad, string sede);                                    // Santiago
     void reportePersonalizado(string departamento, string universidad);                                                 // Jhon
+<<<<<<< HEAD
     void reportePersonalizado(string departamento);                                                                     // Santiago
     void reportePersonalizado();                                                                                        // Miguel
     void topCarreraPromedio();                                                                                          // Santiago        top carreras por promedio
@@ -40,6 +41,18 @@ public:
     void demandaArea();                                                                                                 // Jhon        Area con mas demanda
     void sedesUniversidad();
     void ordenarUniversidades();                                                                                            // Miguel        Universidades con mas sedes
+=======
+    void reportePersonalizado(string departamento, string universidad, string sede, string programa, Estudiante *estudiante);
+    void reportePersonalizado(string departamento); // Santiago
+    void reportePersonalizado();                    // Miguel
+    void topCarreraPromedio();                      // Santiago        top carreras por promedio
+    void uniPromedio();                             // Jhon        Universidad con mejor promedio top
+    void porcenEdades();                            // Jhon        Porcentaje de estudiantes por edades
+    void demandaCarr();                             // Miguel   Carreras mas demandas
+    void porcentGenero();                           // Santiago        Porcentaje de estudiantes por genero
+    void demandaArea();                             // Jhon        Area con mas demanda
+    void sedesUniversidad();                        // Miguel        Universidades con mas sedes
+>>>>>>> cdd512f8b8aa6cbce859f062375fc0a97a95ed0e
 };
 
 #endif
