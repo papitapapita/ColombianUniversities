@@ -73,7 +73,6 @@ void Universidad::insertarSede(Sede *newSede)
     if (!this->getStart())
     {
         this->setStart(newSede);
-        cout << "Sede insertada";
     }
     else
     {
@@ -83,7 +82,6 @@ void Universidad::insertarSede(Sede *newSede)
         if (aux->getIdSede() != newSede->getIdSede())
         {
             aux->setNext(newSede);
-            cout << "Sede insertada";
         }
         else
             cout << "Sede ya existe\n";

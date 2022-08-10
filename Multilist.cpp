@@ -103,6 +103,13 @@ void Multilist::reportePersonalizado(string departamento)
 
 void Multilist::reportePersonalizado()
 {
+    Universidad *aux = this->getHead();
+    for (int i = 0; aux; i++)
+    {
+        cout << i + 1 << ". " << aux->getNombre() << endl;
+        aux = aux->getNext();
+    }
+
 }
 
 void Multilist::topCarreraPromedio()
