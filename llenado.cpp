@@ -62,8 +62,6 @@ void llenado()
             nota = 2 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (5 - 2)));
             estudiantes[i]->insertarNota(nota);
         }
-        // cout << estudiantes[i]->getNombres() << endl;
-        //  estudiantes[i]->mostrarNotas();
     }
 
     vector<Programa *> programas;
@@ -91,12 +89,6 @@ void llenado()
             programas[i]->insertarEstudiante(estudiantes[cont]);
             cont++;
         }
-        // programas[i]->mostrarEstudiante();
-    }
-
-    for (int i = 0; i < programas.size(); i++)
-    {
-        programas[i]->mostrarEstudiante();
     }
 
     sedes.push_back(new Sede("Universidad de los Andes sede Cundinamarca", "Cundinamarca", 10510155));
@@ -114,7 +106,6 @@ void llenado()
     sedes.push_back(new Sede("Universidad del Caribe sede Bolivar", "Bolivar", 18976));
     sedes.push_back(new Sede("Universidad Nacional sede Bolivar", "Bolivar", 658412));
     sedes.push_back(new Sede("Universidad de Antioquia sede Bolivar", "Bolivar", 1981653));
-    //"Universidad de los Andes", "Universidad de los Llanos", "Universidad Nacional", "Universidad Cooperativa", "Universidad Javeriana"
     cont = 0;
     for (int i = 0; i < sedes.size(); i++)
     {
@@ -142,54 +133,6 @@ void llenado()
         }
     }
 
-    cout << "SEDES" << endl;
-    for (int i = 0; i < sedes.size(); i++)
-    {
-        cout << i + 1 << ". " << sedes[i]->getNombre() << endl;
-        // sedes[i]->mostrarProgramas();
-    }
-    cout << "FIN SEDES" << endl;
-
-    cout << "SEDES CUNDINAMARCA\n";
-    for (int i = 0; i < cundinamarca.size(); i++)
-    {
-        cout << i + 1 << ". " << cundinamarca[i]->getNombre() << "\t" << cundinamarca[i]->getIdSede() << endl;
-    }
-    cout << "FIN SEDES CUNDINAMARCA\n\n";
-
-    cout << "SEDES META" << endl;
-    for (int i = 0; i < meta.size(); i++)
-    {
-        cout << i + 1 << ". " << meta[i]->getNombre() << "\t" << meta[i]->getIdSede() << endl;
-    }
-    cout << "FIN SEDES META" << endl;
-
-    cout << "SEDES BOYACA\n";
-    for (int i = 0; i < boyaca.size(); i++)
-    {
-        cout << i + 1 << ". " << boyaca[i]->getNombre() << "\t" << boyaca[i]->getIdSede() << endl;
-    }
-    cout << "FIN SEDES BOYACA\n\n";
-
-    cout << "SEDES antioquia\n";
-    for (int i = 0; i < antioquia.size(); i++)
-    {
-        cout << i + 1 << ". " << antioquia[i]->getNombre() << "\t" << antioquia[i]->getIdSede() << endl;
-    }
-    cout << "FIN SEDES antioquia\n\n";
-
-    cout << "SEDES bolivar\n";
-    for (int i = 0; i < bolivar.size(); i++)
-    {
-        cout << i + 1 << ". " << bolivar[i]->getNombre() << "\t" << bolivar[i]->getIdSede() << endl;
-    }
-    cout << "FIN SEDES bolivar\n\n";
-    /*
-        for (int i = 0; i < programas.size(); i++)
-        {
-            cout << i << ". " << programas[i]->getNombre() << "\t" << programas[i]->getArea() << "\t" << programas[i]->getIdPrograma() << endl;
-        }
-    */
     cont = 0;
     for (int i = 0; i < sedes.size(); i++)
     {
@@ -211,11 +154,6 @@ void llenado()
         universidades.push_back(new Universidad(nombresUniversidades[i], aux));
     }
 
-    for (int i = 0; i < universidades.size(); i++)
-    {
-        cout << i + 1 << ". " << universidades[i]->getNombre() << endl;
-    }
-
     universidades[0]->insertarSede(sedes[0]);
     universidades[1]->insertarSede(sedes[3]);
     universidades[2]->insertarSede(sedes[1]);
@@ -231,14 +169,6 @@ void llenado()
     universidades[5]->insertarSede(sedes[14]);
     universidades[6]->insertarSede(sedes[12]);
     universidades[7]->insertarSede(sedes[7]);
-
-    for (int i = 0; i < universidades.size(); i++)
-    {
-        cout << universidades[i]->getNombre() << endl
-             << "---------" << endl;
-        universidades[i]->mostrarSedes();
-        cout << "---------" << endl;
-    }
     unisMeta.push_back(universidades[1]);
     unisMeta.push_back(universidades[2]);
     unisMeta.push_back(universidades[3]);
@@ -262,7 +192,4 @@ void llenado()
     departamentos.push_back(unisBoyaca);
     departamentos.push_back(unisAntioquia);
     departamentos.push_back(unisBolivar);
-    cout << "Universidades\n";
-    m->mostrarUniversidades();
-    cout << "\n\n";
 }

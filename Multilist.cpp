@@ -156,7 +156,7 @@ void Multilist::reportePersonalizado(string depa, string uni, Sede *sede)
 
 void Multilist::reportePersonalizado(string depa, Universidad *universidad)
 {
-    Sede *aux = universidad->getStart();
+    /*Sede *aux = universidad->getStart();
     Programa *aux2 = aux->getStart();
     Estudiante *aux3 = aux2->getStart();
     Nota *aux4 = aux3->getStart();
@@ -173,11 +173,11 @@ void Multilist::reportePersonalizado(string depa, Universidad *universidad)
             while (aux3)
             {
                 cout << "Estudiante: " << aux3->getNombres() << " " << aux3->getApellidos() << endl;
-                while (aux4)
-                {
-                    cout << "\t " << aux4->getNota() << endl;
-                    aux4 = aux4->getNext();
-                }
+                 while (aux4)
+                 {
+                     cout << "\t " << aux4->getNota() << endl;
+                     aux4 = aux4->getNext();
+                 }
                 aux3 = aux3->getNext();
                 aux4 = aux3->getStart();
             }
@@ -186,7 +186,7 @@ void Multilist::reportePersonalizado(string depa, Universidad *universidad)
         }
         aux = aux->getNext();
         aux2 = aux->getStart();
-    }
+    }*/
 }
 
 void Multilist::reportePersonalizado(vector<Universidad *> depaV, string depa)
@@ -218,16 +218,20 @@ void Multilist::reportePersonalizado(vector<Universidad *> depaV, string depa)
                         aux5 = aux5->getNext();
                     }
                     aux4 = aux4->getNext();
-                    aux5 = aux4->getStart();
+                    if (aux4)
+                        aux5 = aux4->getStart();
                 }
                 aux3 = aux3->getNext();
-                aux4 = aux3->getStart();
+                if (aux3)
+                    aux4 = aux3->getStart();
             }
             aux2 = aux2->getNext();
-            aux3 = aux2->getStart();
+            if (aux2)
+                aux3 = aux2->getStart();
         }
         aux = aux->getNext();
-        aux2 = aux->getStart();
+        if (aux)
+            aux2 = aux->getStart();
     }
 }
 
@@ -263,16 +267,20 @@ void Multilist::reportePersonalizado(vector<vector<Universidad *>> departamentos
                             aux5 = aux5->getNext();
                         }
                         aux4 = aux4->getNext();
-                        aux5 = aux4->getStart();
+                        if (aux4)
+                            aux5 = aux4->getStart();
                     }
                     aux3 = aux3->getNext();
-                    aux4 = aux3->getStart();
+                    if (aux3)
+                        aux4 = aux3->getStart();
                 }
                 aux2 = aux2->getNext();
-                aux3 = aux2->getStart();
+                if (aux2)
+                    aux3 = aux2->getStart();
             }
             aux = aux->getNext();
-            aux2 = aux->getStart();
+            if (aux)
+                aux2 = aux->getStart();
         }
         i++;
         aux = departamentos[i][0];
@@ -283,12 +291,111 @@ void Multilist::topCarreraPromedio()
 {
 }
 
-void Multilist::uniPromedio()
+void Multilist::uniPromedioGlobal()
 {
+    float promedioo = 0.0;
+    float numeroEst = 0.0;
+    Universidad *universidad = this->getHead();
+    while (universidad)
+    {
+        cout << universidad->getNombre() << endl;
+        Sede *sede = universidad->getStart();
+        while (sede)
+        {
+            Programa *programas = sede->getStart();
+            while (programas)
+            {
+                Estudiante *estudiantes = programas->getStart();
+                while (estudiantes)
+                {
+                    // cout << estudiantes->getNombres() << endl;
+                    Nota *nota = estudiantes->getStart();
+                    while (nota)
+                    {
+                        promedioo = promedioo + nota->getNota() / 3;
+                        nota = nota->getNext();
+                    }
+                    numeroEst++;
+                    estudiantes = estudiantes->getNext();
+                }
+                programas = programas->getNext();
+            }
+            sede = sede->getNext();
+        }
+        cout << promedioo << endl;
+        cout << numeroEst++ << endl;
+        cout << promedioo / numeroEst << endl;
+        universidad = universidad->getNext();
+    }
 }
 
-void Multilist::porcenEdades()
+void Multilist::porcenEdadesGlobal()
 {
+    float rango1 = 0.0;
+    float rango2 = 0.0;
+    float rango3 = 0.0;
+    float mayores = 0.0;
+    float total = 0.0;
+    Universidad *universidad = this->getHead();
+    while (universidad)
+    {
+        cout << "\n\n\nNombre: " << universidad->getNombre() << endl;
+        Sede *sede = universidad->getStart();
+        while (sede)
+        {
+            Programa *programas = sede->getStart();
+            while (programas)
+            {
+                Estudiante *estudiantes = programas->getStart();
+                while (estudiantes)
+                {
+                    Nota *nota = estudiantes->getStart();
+                    while (nota)
+                    {
+
+                        nota = nota->getNext();
+                    }
+                    if (estudiantes->getEdad() > 18 && estudiantes->getEdad() <= 28)
+                        rango1++;
+                    else if (estudiantes->getEdad() > 28 && estudiantes->getEdad() <= 38)
+                        rango2++;
+                    else if (estudiantes->getEdad() > 38 && estudiantes->getEdad() <= 48)
+                        rango3++;
+                    else if (estudiantes->getEdad() > 48)
+                        mayores++;
+                    estudiantes = estudiantes->getNext();
+                }
+                programas = programas->getNext();
+            }
+            sede = sede->getNext();
+        }
+        total = rango1 + rango2 + rango3 + mayores;
+
+        cout << "Total de estudiantes en la universidad: "
+             << " " << total << endl;
+        cout << "------------Estudiantes entre 18-28 ------------- " << endl;
+        cout << "Cantidad: "
+             << " " << rango1 << endl;
+        cout << "Porcentaje: "
+             << " " << rango1 * 100 / total << "%" << endl;
+        cout << "------------Estudiantes entre 28-38 ------------- " << endl;
+        cout << "Cantidad: "
+             << " " << rango2 << endl;
+        cout << "Porcentaje: "
+             << " " << rango2 * 100 / total << "%" << endl;
+        cout << "------------Estudiantes entre 38-48 ------------- " << endl;
+        cout << "Cantidad: "
+             << " " << rango3 << endl;
+        cout << "Porcentaje: "
+             << " " << rango3 * 100 / total << "%" << endl;
+        cout << "------------Estudiantes mayores a 48 ------------- " << endl;
+        cout << "Cantidad: "
+             << " " << mayores << endl;
+        cout << "Porcentaje: "
+             << " " << mayores * 100 / total << "%" << endl;
+
+        universidad = universidad->getNext();
+    }
 }
 
 void Multilist::demandaCarr()
@@ -314,8 +421,47 @@ void Multilist::demandaCarr()
     }
 }
 
-void Multilist::porcentGenero()
+void Multilist::porcentGeneroGlobal()
 {
+    float hombres = 0.0;
+    float mujeres = 0.0;
+    float numeroTotal = 0.0;
+    Universidad *universidad = this->getHead();
+    while (universidad)
+    {
+        cout << "\n\n\nNombre: " << universidad->getNombre() << endl;
+        Sede *sede = universidad->getStart();
+        while (sede)
+        {
+            Programa *programas = sede->getStart();
+            while (programas)
+            {
+                Estudiante *estudiantes = programas->getStart();
+                while (estudiantes)
+                {
+                    Nota *nota = estudiantes->getStart();
+                    while (nota)
+                    {
+
+                        nota = nota->getNext();
+                    }
+                    numeroTotal++;
+                    if (estudiantes->getGenero() == "Masculino")
+                        hombres++;
+                    else
+                        mujeres++;
+                    estudiantes = estudiantes->getNext();
+                }
+                programas = programas->getNext();
+            }
+            sede = sede->getNext();
+        }
+
+        cout << "Cantidad total de estudiantes: " << numeroTotal << endl;
+        cout << "Hombres: " << hombres << "  Porcentaje: " << hombres * 100 / numeroTotal << "%" << endl;
+        cout << "Mujeres: " << mujeres << "  Porcentaje: " << mujeres * 100 / numeroTotal << "%" << endl;
+        universidad = universidad->getNext();
+    }
 }
 
 void Multilist::demandaArea()

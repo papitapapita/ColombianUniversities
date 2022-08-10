@@ -34,12 +34,12 @@ public:
     void reportePersonalizado(vector<Universidad *> departamentoVector, string departamento);            // Santiago
     void reportePersonalizado(vector<vector<Universidad *>> departamentos, string departamentosName[]);  // Miguel
     void topCarreraPromedio();                                                                           // Santiago        top carreras por promedio
-    void uniPromedio();                                                                                  // Jhon        Universidad con mejor promedio top
-    void porcenEdades();                                                                                 // Jhon        Porcentaje de estudiantes por edades
-    void demandaCarr();                                                                                  // Miguel   Carreras mas demandas
-    void porcentGenero();                                                                                // Santiago        Porcentaje de estudiantes por genero
+    void uniPromedioGlobal();                                                                            // Jhon        Universidad con mejor promedio top -
+    void porcenEdadesGlobal();                                                                           // Jhon        Porcentaje de estudiantes por edades -
+    void demandaCarr();                                                                                  // Miguel   Carreras mas demandas -
+    void porcentGeneroGlobal();                                                                          // Santiago        Porcentaje de estudiantes por genero -
     void demandaArea();                                                                                  // Jhon        Area con mas demanda
-    void sedesUniversidad();                                                                             // Miguel        Universidades con mas sedes
+    void sedesUniversidad();                                                                             // Miguel        Universidades con mas sedes -
 };
 
 #endif
