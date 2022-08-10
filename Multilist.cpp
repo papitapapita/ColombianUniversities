@@ -37,6 +37,18 @@ void Multilist::insertarUniversidad(Universidad *uni)
 }
 void Multilist::insertarUniversidadOrder(Universidad *uni)
 {
+    if (!this->getHead())
+        this->setHead(uni);
+    else
+    {
+        Universidad *aux = this->getHead();
+        while (aux->getNext() && uni->getIdUniversidad() != aux->getIdUniversidad())
+            aux = aux->getNext();
+        if (aux->getIdUniversidad() != uni->getIdUniversidad())
+            aux->setNext(uni);
+        else
+            cout << "Universidad ya existe\n";
+    }
 }
 void Multilist::insertarSede(int universidad, Sede *sede)
 {
@@ -303,8 +315,6 @@ void Multilist::sedesUniversidad()
             auxSed = auxSed->getNext();
             cont++;
         }
-        cout << auxUni->getNombre() << cont << endl;
-        auxUni = auxUni->getNext();
         cont = 0;
     }
 }
