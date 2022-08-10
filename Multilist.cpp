@@ -43,9 +43,9 @@ void Multilist::insertarPrograma(int universidadId, int sedeId, Programa *progra
 }
 void Multilist::insertarEstudiante(string universidad,string sede,string programa, Estudiante *estudianteId)
 {
-    Programa *busq=buscarSede(universidad,sede);
+    Sede *busq=buscarSede(universidad,sede);
     if(busq){
-        busq->insertarEstudiante(estudianteId);
+      //  busq->insertarEstudiante(estudianteId);
     }
 }
 void Multilist::insertarNota(int universidadId, int sedeId, int programaId, int estudianteId, Nota *nota)
@@ -215,5 +215,5 @@ void Multilist::ordenarUniversidades()
            
      }
      
-     cout<<"\n\n\Universidad * ordenada..."<<endl;
+     cout<<"\nuniversidad  ordenada..."<<endl;
 }
