@@ -8,7 +8,6 @@ class Nota
 
 public:
     ~Nota();
-    Nota();
     Nota(float);
     float getNota();
     Nota *getNext();

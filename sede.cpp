@@ -89,9 +89,9 @@ void Sede::insertarPrograma(Programa *pro)
     else
     {
         Programa *aux = this->getStart();
-        while (aux->getNombre() != pro->getNombre() && aux->getNext() && pro->getIdPrograma() != aux->getIdPrograma())
+        while (aux->getNext() && pro->getIdPrograma() != aux->getIdPrograma())
             aux = aux->getNext();
-        if (aux->getNombre() != pro->getNombre() && aux->getIdPrograma() != pro->getIdPrograma())
+        if (aux->getIdPrograma() != pro->getIdPrograma())
             aux->setNext(pro);
         else
             cout << "Programa ya existe\n";

@@ -33,62 +33,62 @@ int main()
         if (opcionDepa == 1)
         {
             cout << "Meta: " << endl;
-            cout << "Top 5 carreras con mejor promedio" << endl;
-            cout << "Top  5 universidades con mejor promedio " << endl;
-            cout << "Porcentaje de estudiantes por edades" << endl;
-            cout << "Top 5 carreras con mas demanda" << endl;
-            cout << "Porcentaje de hombres y mujeres" << endl;
-            cout << "Area con mas demanda" << endl;
+            cout << "1. Top 5 carreras con mejor promedio" << endl;
+            cout << "2. Top  5 universidades con mejor promedio " << endl;
+            cout << "3. Porcentaje de estudiantes por edades" << endl;
+            cout << "4. Top 5 carreras con mas demanda" << endl;
+            cout << "5. Porcentaje de hombres y mujeres" << endl;
+            cout << "6. Area con mas demanda" << endl;
         }
         else if (opcionDepa == 2)
         {
             cout << "Cundinamarca: " << endl;
-            cout << "Top 5 carreras con mejor promedio" << endl;
-            cout << "Top  5 universidades con mejor promedio " << endl;
-            cout << "Porcentaje de estudiantes por edades" << endl;
-            cout << "Top 5 carreras con mas demanda" << endl;
-            cout << "Porcentaje de hombres y mujeres" << endl;
-            cout << "Area con mas demanda" << endl;
+            cout << "1. Top 5 carreras con mejor promedio" << endl;
+            cout << "2. Top  5 universidades con mejor promedio " << endl;
+            cout << "3. Porcentaje de estudiantes por edades" << endl;
+            cout << "4. Top 5 carreras con mas demanda" << endl;
+            cout << "5. Porcentaje de hombres y mujeres" << endl;
+            cout << "6. Area con mas demanda" << endl;
         }
         else if (opcionDepa == 3)
         {
             cout << "Boyaca: " << endl;
-            cout << "Top 5 carreras con mejor promedio" << endl;
-            cout << "Top  5 universidades con mejor promedio " << endl;
-            cout << "Porcentaje de estudiantes por edades" << endl;
-            cout << "Top 5 carreras con mas demanda" << endl;
-            cout << "Porcentaje de hombres y mujeres" << endl;
-            cout << "Area con mas demanda" << endl;
+            cout << "1. Top 5 carreras con mejor promedio" << endl;
+            cout << "2. Top  5 universidades con mejor promedio " << endl;
+            cout << "3. Porcentaje de estudiantes por edades" << endl;
+            cout << "4. Top 5 carreras con mas demanda" << endl;
+            cout << "5. Porcentaje de hombres y mujeres" << endl;
+            cout << "6. Area con mas demanda" << endl;
         }
         else if (opcionDepa == 4)
         {
             cout << "Antioquia: " << endl;
-            cout << "Top 5 carreras con mejor promedio" << endl;
-            cout << "Top  5 universidades con mejor promedio " << endl;
-            cout << "Porcentaje de estudiantes por edades" << endl;
-            cout << "Top 5 carreras con mas demanda" << endl;
-            cout << "Porcentaje de hombres y mujeres" << endl;
-            cout << "Area con mas demanda" << endl;
+            cout << "1. Top 5 carreras con mejor promedio" << endl;
+            cout << "2. Top  5 universidades con mejor promedio " << endl;
+            cout << "3. Porcentaje de estudiantes por edades" << endl;
+            cout << "4. Top 5 carreras con mas demanda" << endl;
+            cout << "5. Porcentaje de hombres y mujeres" << endl;
+            cout << "6. Area con mas demanda" << endl;
         }
         else if (opcionDepa == 5)
         {
             cout << "Narino: " << endl;
-            cout << "Top 5 carreras con mejor promedio" << endl;
-            cout << "Top  5 universidades con mejor promedio " << endl;
-            cout << "Porcentaje de estudiantes por edades" << endl;
-            cout << "Top 5 carreras con mas demanda" << endl;
-            cout << "Porcentaje de hombres y mujeres" << endl;
-            cout << "Area con mas demanda" << endl;
+            cout << "1. Top 5 carreras con mejor promedio" << endl;
+            cout << "2. Top  5 universidades con mejor promedio " << endl;
+            cout << "3. Porcentaje de estudiantes por edades" << endl;
+            cout << "4. Top 5 carreras con mas demanda" << endl;
+            cout << "5. Porcentaje de hombres y mujeres" << endl;
+            cout << "6. Area con mas demanda" << endl;
         }
         else if (opcionDepa == 6)
         {
             cout << "Bolivar: " << endl;
-            cout << "Top 5 carreras con mejor promedio" << endl;
-            cout << "Top  5 universidades con mejor promedio " << endl;
-            cout << "Porcentaje de estudiantes por edades" << endl;
-            cout << "Top 5 carreras con mas demanda" << endl;
-            cout << "Porcentaje de hombres y mujeres" << endl;
-            cout << "Area con mas demanda" << endl;
+            cout << "1. Top 5 carreras con mejor promedio" << endl;
+            cout << "2. Top  5 universidades con mejor promedio " << endl;
+            cout << "3. Porcentaje de estudiantes por edades" << endl;
+            cout << "4. Top 5 carreras con mas demanda" << endl;
+            cout << "5. Porcentaje de hombres y mujeres" << endl;
+            cout << "6. Area con mas demanda" << endl;
         }
         break;
     case 3:
@@ -115,28 +115,39 @@ int main()
             if (opcion > 0 && opcion <= i + 1)
             {
                 system("clear");
-                cout << unisCundinamarca[opcion - 1]->getNombre() << endl;
-                uni = unisCundinamarca[opcion - 1]->getNombre();
-                unisCundinamarca[opcion - 1]->mostrarNombreSedes();
-                size = unisCundinamarca[opcion - 1]->cantidadSedes();
-                cout << size + 1 << ". Mostrar todos\n"
-                     << ">> ";
-                cin >> opcion;
+                if (opcion == i + 1)
+                    m->reportePersonalizado(unisCundinamarca, depa);
+                else
+                {
+                    cout << unisCundinamarca[opcion - 1]->getNombre() << endl;
+                    uni = unisCundinamarca[opcion - 1]->getNombre();
+                    unisCundinamarca[opcion - 1]->mostrarNombreSedes();
+                    size = unisCundinamarca[opcion - 1]->cantidadSedes();
+                    cout << size + 1 << ". Mostrar todos\n"
+                         << ">> ";
+                    cin >> opcion;
+                }
                 if (opcion > 0 && opcion <= size + 1)
                 {
                     system("clear");
                     Sede *aux = unisCundinamarca[opcion - 1]->buscarSedeInd(opcion - 1);
-                    cout << aux->getNombre() << endl;
-                    sed = aux->getNombre();
-                    aux->mostrarNombresProgramas();
-                    size = aux->cantidadProgramas();
-                    cout << size + 1 << " .Mostrar todos\n"
-                         << ">> ";
-                    cin >> opcion;
-                    if (opcion > 0 && opcion <= size + 1)
+                    if (opcion == size + 1)
+                        m->reportePersonalizado(depa, unisCundinamarca[opcion]);
+                    else
                     {
-                        system("clear");
+                        cout << aux->getNombre() << endl;
+                        sed = aux->getNombre();
+                        aux->mostrarNombresProgramas();
+                        size = aux->cantidadProgramas();
+                        cout << size + 1 << " .Mostrar todos\n"
+                             << ">> ";
+                        cin >> opcion;
+                    }
+                    if (opcion > 0 && opcion < size + 1)
+                    {
                         Programa *aux2 = aux->buscarPrograma(opcion - 1);
+                        system("clear");
+
                         cout << aux2->getNombre() << endl;
                         pro = aux2->getNombre();
                         aux2->mostrarNombresEstudiante();
@@ -144,12 +155,22 @@ int main()
                         cout << size + 1 << ". Mostrar todos\n"
                              << ">> ";
                         cin >> opcion;
-                        if (opcion > 0 && opcion <= size + 1)
+                        if (opcion > 0 && opcion < size + 1)
                         {
                             Estudiante *aux3 = aux2->buscarEstudiante(opcion - 1);
                             m->reportePersonalizado(depa, uni, sed, pro, aux3);
                         }
+                        else if (opcion == size + 1)
+                        {
+                            m->reportePersonalizado(depa, uni, sed, aux2);
+                        }
+                        else
+                            cout << "Opción Incorrecta\n";
                     }
+                    else if (opcion == size + 1)
+                        m->reportePersonalizado(depa, uni, aux);
+                    else
+                        cout << "Opción Incorrecta\n";
                 }
                 else
                     cout << "Opción Incorrecta\n";

@@ -27,9 +27,12 @@ void Multilist::insertarUniversidad(Universidad *uni)
     else
     {
         Universidad *aux = this->getHead();
-        while (aux->getNext() && aux->getIdUniversidad() != uni->getIdUniversidad() && aux->getNombre() != aux->getNombre())
+        while (aux->getNext() && uni->getIdUniversidad() != aux->getIdUniversidad())
             aux = aux->getNext();
-        // if (aux->getIdUniversidad() != uni->getIdUniversidad() &&)
+        if (aux->getIdUniversidad() != uni->getIdUniversidad())
+            aux->setNext(uni);
+        else
+            cout << "Universidad ya existe\n";
     }
 }
 void Multilist::insertarUniversidadOrder(Universidad *uni)
@@ -81,24 +84,187 @@ void Multilist::reportePersonalizado(string depa, string uni, string sed, string
     }
 }
 
-void Multilist::reportePersonalizado(string departamento, string universidad, string sede, string programa)
+void Multilist::reportePersonalizado(string depa, string uni, string sed, Programa *programa)
 {
+    Estudiante *aux = programa->getStart();
+    Nota *aux2 = aux->getStart();
+    system("clear");
+    int i = 0;
+    cout << "Departamento: " << depa << endl
+         << "Universidad: " << uni << endl
+         << "Sede: " << sed << endl
+         << "Programa: " << programa->getNombre() << endl;
+    while (aux)
+    {
+
+        cout << i + 1 << ". Estudiante: " << aux->getNombres() << " " << aux->getApellidos() << endl;
+        while (aux2)
+        {
+            cout << "\t " << aux2->getNota() << endl;
+            aux2 = aux2->getNext();
+        }
+        aux = aux->getNext();
+
+        if (aux)
+            aux2 = aux->getStart();
+        i++;
+    }
 }
 
-void Multilist::reportePersonalizado(string departamento, string universidad, string sede)
+void Multilist::reportePersonalizado(string depa, string uni, Sede *sede)
 {
+    Programa *aux = sede->getStart();
+    Estudiante *aux2 = aux->getStart();
+    Nota *aux3 = aux2->getStart();
+    system("clear");
+
+    cout << "Departamento: " << depa << endl
+         << "Universidad: " << uni << endl
+         << "Sede: " << sede->getNombre() << endl;
+    while (aux)
+    {
+        cout << "Programa: " << aux->getNombre() << endl;
+        while (aux2)
+        {
+            cout << "\tEstudiante: " << aux2->getNombres() << " " << aux2->getApellidos() << endl;
+            while (aux3)
+            {
+                cout << "\t\t " << aux3->getNota() << endl;
+                aux3 = aux3->getNext();
+            }
+            aux2 = aux2->getNext();
+            if (aux2)
+                aux3 = aux2->getStart();
+        }
+        aux = aux->getNext();
+        if (aux)
+            aux2 = aux->getStart();
+    }
 }
 
-void Multilist::reportePersonalizado(string departamento, string universidad)
+void Multilist::reportePersonalizado(string depa, Universidad *universidad)
 {
+    Sede *aux = universidad->getStart();
+    Programa *aux2 = aux->getStart();
+    Estudiante *aux3 = aux2->getStart();
+    Nota *aux4 = aux3->getStart();
+    system("clear");
+
+    cout << "Departamento: " << depa << endl
+         << "Universidad: " << universidad->getNombre() << endl;
+    while (aux)
+    {
+        cout << "Sede: " << aux->getNombre() << endl;
+        while (aux2)
+        {
+            cout << "Programa: " << aux2->getNombre() << endl;
+            while (aux3)
+            {
+                cout << "Estudiante: " << aux3->getNombres() << " " << aux3->getApellidos() << endl;
+                while (aux4)
+                {
+                    cout << "\t " << aux4->getNota() << endl;
+                    aux4 = aux4->getNext();
+                }
+                aux3 = aux3->getNext();
+                aux4 = aux3->getStart();
+            }
+            aux2 = aux2->getNext();
+            aux3 = aux2->getStart();
+        }
+        aux = aux->getNext();
+        aux2 = aux->getStart();
+    }
 }
 
-void Multilist::reportePersonalizado(string departamento)
+void Multilist::reportePersonalizado(vector<Universidad *> depaV, string depa)
 {
+    Universidad *aux = depaV[0];
+    Sede *aux2 = aux->getStart();
+    Programa *aux3 = aux2->getStart();
+    Estudiante *aux4 = aux3->getStart();
+    Nota *aux5 = aux4->getStart();
+    system("clear");
+
+    cout << "Departamento: " << depa << endl;
+    while (aux)
+    {
+        cout << "Universidad: " << aux->getNombre() << endl;
+        while (aux2)
+        {
+
+            cout << "Sede: " << aux2->getNombre() << endl;
+            while (aux3)
+            {
+                cout << "Programa: " << aux3->getNombre() << endl;
+                while (aux4)
+                {
+                    cout << "Estudiante: " << aux4->getNombres() << " " << aux4->getApellidos() << endl;
+                    while (aux5)
+                    {
+                        cout << "\t " << aux5->getNota() << endl;
+                        aux5 = aux5->getNext();
+                    }
+                    aux4 = aux4->getNext();
+                    aux5 = aux4->getStart();
+                }
+                aux3 = aux3->getNext();
+                aux4 = aux3->getStart();
+            }
+            aux2 = aux2->getNext();
+            aux3 = aux2->getStart();
+        }
+        aux = aux->getNext();
+        aux2 = aux->getStart();
+    }
 }
 
-void Multilist::reportePersonalizado()
+void Multilist::reportePersonalizado(vector<vector<Universidad *>> departamentos, string departamentosName[])
 {
+    Universidad *aux = departamentos[0][0];
+    Sede *aux2 = aux->getStart();
+    Programa *aux3 = aux2->getStart();
+    Estudiante *aux4 = aux3->getStart();
+    Nota *aux5 = aux4->getStart();
+    int i = 0;
+    system("clear");
+
+    while (aux)
+    {
+        cout << "Departamento: " << departamentosName[i] << endl;
+        while (aux)
+        {
+            cout << "Universidad: " << aux->getNombre() << endl;
+            while (aux2)
+            {
+
+                cout << "Sede: " << aux2->getNombre() << endl;
+                while (aux3)
+                {
+                    cout << "Programa: " << aux3->getNombre() << endl;
+                    while (aux4)
+                    {
+                        cout << "Estudiante: " << aux4->getNombres() << " " << aux4->getApellidos() << endl;
+                        while (aux5)
+                        {
+                            cout << "\t " << aux5->getNota() << endl;
+                            aux5 = aux5->getNext();
+                        }
+                        aux4 = aux4->getNext();
+                        aux5 = aux4->getStart();
+                    }
+                    aux3 = aux3->getNext();
+                    aux4 = aux3->getStart();
+                }
+                aux2 = aux2->getNext();
+                aux3 = aux2->getStart();
+            }
+            aux = aux->getNext();
+            aux2 = aux->getStart();
+        }
+        i++;
+        aux = departamentos[i][0];
+    }
 }
 
 void Multilist::topCarreraPromedio()
@@ -127,16 +293,18 @@ void Multilist::demandaArea()
 
 void Multilist::sedesUniversidad()
 {
-    int cont=0;
+    int cont = 0;
     Universidad *auxUni = this->getHead();
-    while(auxUni){
-        Sede *auxSed = auxUni -> getStart();
-        while(auxSed){
+    while (auxUni)
+    {
+        Sede *auxSed = auxUni->getStart();
+        while (auxSed)
+        {
             auxSed = auxSed->getNext();
             cont++;
         }
-        cout << auxUni->getNombre() << cont << endl ;
-        auxUni = auxUni ->getNext();
+        cout << auxUni->getNombre() << cont << endl;
+        auxUni = auxUni->getNext();
         cont = 0;
     }
 }
@@ -183,4 +351,14 @@ Estudiante *Multilist::buscarEstudiante(string nombreU, string nombreSede, strin
         return aux4;
     else
         return NULL;
+}
+
+void Multilist::mostrarUniversidades()
+{
+    Universidad *aux = this->getHead();
+    while (aux)
+    {
+        cout << aux->getNombre() << "\t " << aux->getIdUniversidad() << endl;
+        aux = aux->getNext();
+    }
 }

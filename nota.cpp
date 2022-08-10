@@ -4,11 +4,6 @@ Nota::~Nota()
 {
 }
 
-Nota::Nota()
-{
-    nota = 0;
-}
-
 Nota::Nota(float nota)
 {
     this->nota = nota;

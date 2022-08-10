@@ -17,6 +17,7 @@ vector<Universidad *> unisCundinamarca;
 vector<Universidad *> unisBoyaca;
 vector<Universidad *> unisBolivar;
 vector<Universidad *> unisAntioquia;
+vector<vector<Universidad *>> departamentos;
 
 using namespace std;
 void llenado()
@@ -58,7 +59,7 @@ void llenado()
     {
         for (int j = 0; j < 3; j++)
         {
-            nota = static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (5)));
+            nota = 2 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (5 - 2)));
             estudiantes[i]->insertarNota(nota);
         }
         // cout << estudiantes[i]->getNombres() << endl;
@@ -91,6 +92,11 @@ void llenado()
             cont++;
         }
         // programas[i]->mostrarEstudiante();
+    }
+
+    for (int i = 0; i < programas.size(); i++)
+    {
+        programas[i]->mostrarEstudiante();
     }
 
     sedes.push_back(new Sede("Universidad de los Andes sede Cundinamarca", "Cundinamarca", 10510155));
@@ -201,7 +207,7 @@ void llenado()
 
     for (int i = 0; i < 8; i++)
     {
-        aux = 1000 % rand() % (9999 - 1000);
+        aux = 10000 + rand() % (99999 - 10000);
         universidades.push_back(new Universidad(nombresUniversidades[i], aux));
     }
 
@@ -251,4 +257,12 @@ void llenado()
     m->setHead(universidades[0]);
     for (int i = 1; i < universidades.size(); i++)
         m->insertarUniversidad(universidades[i]);
+    departamentos.push_back(unisCundinamarca);
+    departamentos.push_back(unisMeta);
+    departamentos.push_back(unisBoyaca);
+    departamentos.push_back(unisAntioquia);
+    departamentos.push_back(unisBolivar);
+    cout << "Universidades\n";
+    m->mostrarUniversidades();
+    cout << "\n\n";
 }
