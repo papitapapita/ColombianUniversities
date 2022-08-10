@@ -1,4 +1,5 @@
 #include "Multilist.h"
+#include "list"
 
 Multilist::Multilist()
 {
@@ -30,6 +31,9 @@ void Multilist::insertarUniversidad(Universidad *uni)
             aux = aux->getNext();
         // if (aux->getIdUniversidad() != uni->getIdUniversidad() &&)
     }
+}
+void Multilist::insertarUniversidadOrder(Universidad *uni)
+{
 }
 void Multilist::insertarSede(int universidad, Sede *sede)
 {
@@ -123,18 +127,16 @@ void Multilist::demandaArea()
 
 void Multilist::sedesUniversidad()
 {
-    int cont = 0;
+    int cont=0;
     Universidad *auxUni = this->getHead();
-    while (auxUni)
-    {
-        Sede *auxSed = auxUni->getStart();
-        while (auxSed)
-        {
+    while(auxUni){
+        Sede *auxSed = auxUni -> getStart();
+        while(auxSed){
             auxSed = auxSed->getNext();
             cont++;
         }
-        cout << auxUni->getNombre() << cont << endl;
-        auxUni = auxUni->getNext();
+        cout << auxUni->getNombre() << cont << endl ;
+        auxUni = auxUni ->getNext();
         cont = 0;
     }
 }
