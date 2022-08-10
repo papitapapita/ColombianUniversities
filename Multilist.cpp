@@ -27,13 +27,28 @@ void Multilist::insertarUniversidad(Universidad *uni)
     else
     {
         Universidad *aux = this->getHead();
-        while (aux->getNext() && aux->getIdUniversidad() != uni->getIdUniversidad() && aux->getNombre() != aux->getNombre())
+        while (aux->getNext() && uni->getIdUniversidad() != aux->getIdUniversidad())
             aux = aux->getNext();
-        // if (aux->getIdUniversidad() != uni->getIdUniversidad() &&)
+        if (aux->getIdUniversidad() != uni->getIdUniversidad())
+            aux->setNext(uni);
+        else
+            cout << "Universidad ya existe\n";
     }
 }
 void Multilist::insertarUniversidadOrder(Universidad *uni)
 {
+   if (!this->getHead())
+        this->setHead(uni);
+    else
+    {
+        Universidad *aux = this->getHead();
+        while (aux->getNext() && uni->getIdUniversidad() != aux->getIdUniversidad())
+            aux = aux->getNext();
+        if (aux->getIdUniversidad() != uni->getIdUniversidad())
+            aux->setNext(uni);
+        else
+            cout << "Universidad ya existe\n";
+    }
 }
 void Multilist::insertarSede(int universidad, Sede *sede)
 {
@@ -146,7 +161,7 @@ void Multilist::sedesUniversidad()
             auxSed = auxSed->getNext();
             cont++;
         }
-        cout << auxUni->getNombre() << cont << endl ;
+        cout << auxUni->getNombre()<< " " << cont << endl ;
         auxUni = auxUni ->getNext();
         cont = 0;
     }
@@ -198,29 +213,30 @@ Estudiante *Multilist::buscarEstudiante(string nombreU, string nombreSede, strin
 void Multilist::ordenarUniversidades()
 {
      Universidad *actual= this -> getHead();
-     Universidad *siguiente=NULL;
-       
-     string t;
+     Universidad *siguiente= actual ->getNext();    
+     Universidad *aux= NULL;    
      
-     
-     while(actual->getNext() != NULL)
+     while(actual->getNext())
      {
-          siguiente = actual->getNext();
-          
-          while(siguiente!=NULL)
-          {
-               if(actual->cantidadSedes() > siguiente -> cantidadSedes())
-               {
-                    t = siguiente->getNombre();
-                    siguiente->setNombre(actual-> getNombre());
-                    actual->setNombre(t);          
-               }
-               siguiente = siguiente->getNext();                    
-          }    
-          actual = actual->getNext();
-          siguiente = actual->getNext();
+          //siguiente = actual->getNext();
+        cout <<  actual->cantidadSedes()<< "_-_" << siguiente -> cantidadSedes() << endl;
+        if(actual->cantidadSedes() < siguiente -> cantidadSedes())
+        {
+
+            actual -> setNext(siguiente->getNext());
+            siguiente -> setNext(actual); 
+            aux ->setNext(siguiente);
+            aux = siguiente;
+            siguiente = actual -> getNext();
+           cout << "1" <<endl;
+        }                
+        else{
+            aux = actual;
+            actual =  siguiente;
+            siguiente = siguiente-> getNext();
+            cout << "2" <<endl;
+        }
            
      }
-     
      cout<<"\nuniversidad  ordenada..."<<endl;
 }

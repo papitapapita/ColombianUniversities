@@ -165,5 +165,13 @@ int main()
     default:
         break;
     }
+    /*for(int i=0;i<20;i++){
+        cout << "...";
+    }
+    cout << endl;
+    m->sedesUniversidad();
+    m->ordenarUniversidades();
+    m->sedesUniversidad();
+    //m->reportePersonalizado();*/
     return 0;
 }
