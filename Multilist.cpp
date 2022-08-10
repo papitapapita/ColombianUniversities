@@ -166,3 +166,32 @@ Estudiante *Multilist::buscarEstudiante(string nombreU, string nombreSede, strin
     else
         return NULL;
 }
+void Multilist::ordenarUniversidades()
+{
+     Universidad *actual= this -> getHead();
+     Universidad *siguiente=NULL;
+       
+     string t;
+     
+     
+     while(actual->getNext() != NULL)
+     {
+          siguiente = actual->getNext();
+          
+          while(siguiente!=NULL)
+          {
+               if(actual->cantidadSedes() > siguiente -> cantidadSedes())
+               {
+                    t = siguiente->getNombre();
+                    siguiente->setNombre(actual-> getNombre());
+                    actual->setNombre(t);          
+               }
+               siguiente = siguiente->getNext();                    
+          }    
+          actual = actual->getNext();
+          siguiente = actual->getNext();
+           
+     }
+     
+     cout<<"\n\n\Universidad * ordenada..."<<endl;
+}

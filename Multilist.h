@@ -38,7 +38,8 @@ public:
     void demandaCarr();                                                                                                 // Miguel   Carreras mas demandas
     void porcentGenero();                                                                                               // Santiago        Porcentaje de estudiantes por genero
     void demandaArea();                                                                                                 // Jhon        Area con mas demanda
-    void sedesUniversidad();                                                                                            // Miguel        Universidades con mas sedes
+    void sedesUniversidad();
+    void ordenarUniversidades();                                                                                            // Miguel        Universidades con mas sedes
 };
 
 #endif
