@@ -6,6 +6,9 @@ int main()
 
     int opcion = 0;
     int opcionDepa = 0;
+    int i = 0;
+    int size = 0;
+    string depa, uni, sed, pro;
     cout << "---------------ColombianUniversities---------------" << endl;
     cout << "1. Reporte global" << endl;
     cout << "2. Reporte departamental" << endl;
@@ -89,8 +92,76 @@ int main()
         }
         break;
     case 3:
-        cout << "Reporte personalizado: " << endl;
-        break;
+        cout << "REPORTE PERSONALIZADO" << endl;
+        cout << "1. Cundinamarca\n"
+             << "2. Meta\n"
+             << "3. Boyaca\n"
+             << "4. Antioquia\n"
+             << "5. Bolivar\n"
+             << "6. Mostrar todos\n"
+             << ">> ";
+        cin >> opcion;
+        switch (opcion)
+        {
+        case 1:
+            system("clear");
+            cout << "Cundinamarca\n";
+            depa = "Cundinamarca";
+            for (i = 0; i < unisCundinamarca.size(); i++)
+                cout << i + 1 << ". " << unisCundinamarca[i]->getNombre() << endl;
+            cout << i + 1 << ". Mostrar todos\n"
+                 << ">> ";
+            cin >> opcion;
+            if (opcion > 0 && opcion <= i + 1)
+            {
+                system("clear");
+                cout << unisCundinamarca[opcion - 1]->getNombre() << endl;
+                uni = unisCundinamarca[opcion - 1]->getNombre();
+                unisCundinamarca[opcion - 1]->mostrarNombreSedes();
+                size = unisCundinamarca[opcion - 1]->cantidadSedes();
+                cout << size + 1 << ". Mostrar todos\n"
+                     << ">> ";
+                cin >> opcion;
+                if (opcion > 0 && opcion <= size + 1)
+                {
+                    system("clear");
+                    Sede *aux = unisCundinamarca[opcion - 1]->buscarSedeInd(opcion - 1);
+                    cout << aux->getNombre() << endl;
+                    sed = aux->getNombre();
+                    aux->mostrarNombresProgramas();
+                    size = aux->cantidadProgramas();
+                    cout << size + 1 << " .Mostrar todos\n"
+                         << ">> ";
+                    cin >> opcion;
+                    if (opcion > 0 && opcion <= size + 1)
+                    {
+                        system("clear");
+                        Programa *aux2 = aux->buscarPrograma(opcion - 1);
+                        cout << aux2->getNombre() << endl;
+                        pro = aux2->getNombre();
+                        aux2->mostrarNombresEstudiante();
+                        size = aux2->cantidadEstudiantes();
+                        cout << size + 1 << ". Mostrar todos\n"
+                             << ">> ";
+                        cin >> opcion;
+                        if (opcion > 0 && opcion <= size + 1)
+                        {
+                            Estudiante *aux3 = aux2->buscarEstudiante(opcion - 1);
+                            m->reportePersonalizado(depa, uni, sed, pro, aux3);
+                        }
+                    }
+                }
+                else
+                    cout << "Opción Incorrecta\n";
+            }
+            else
+                cout << "Opcion Incorrecta\n";
+
+            break;
+
+        default:
+            break;
+        }
     default:
         break;
     }

@@ -1,5 +1,14 @@
 #include "Multilist.h"
 
+Multilist::Multilist()
+{
+    head = NULL;
+}
+
+Multilist::~Multilist()
+{
+}
+
 Universidad *Multilist::getHead()
 {
     return head;
@@ -50,12 +59,21 @@ void Multilist::eliminarNota(int universidadId, int sedeId, int programaId, int 
 {
 }
 
-void Multilist::reportePersonalizado(string departamento, string universidad, string sede, string programa, int idEstudiante)
+void Multilist::reportePersonalizado(string depa, string uni, string sed, string pro, Estudiante *estudiante)
 {
-    Estudiante *aux = buscarEstudiante(universidad, sede, programa, idEstudiante);
-    Nota *aux2 = aux->getStart();
-    while (aux2)
+    Nota *aux = estudiante->getStart();
+    system("clear");
+
+    cout << "Departamento: " << depa << endl
+         << "Universidad: " << uni << endl
+         << "Sede: " << sed << endl
+         << "Programa: " << pro << endl
+         << "Estudiante: " << estudiante->getNombres() << " " << estudiante->getApellidos() << endl
+         << "Notas: " << endl;
+    while (aux)
     {
+        cout << "\t " << aux->getNota() << endl;
+        aux = aux->getNext();
     }
 }
 
