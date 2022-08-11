@@ -560,13 +560,6 @@ void Multilist::sedesUniversidad()
     Universidad *auxUni = this->getHead();
     while (auxUni)
     {
-        /*Sede *auxSed = auxUni->getStart();
-        while (auxSed)
-        {
-            auxSed = auxSed->getNext();
-            cont++;
-        }
-        cont = 0;*/
         cantU.push_back(new auxU(auxUni->cantidadSedes() , auxUni->getNombre()));
         auxUni = auxUni->getNext();
     }
