@@ -1,6 +1,6 @@
 #include "Multilist.h"
 #include "list"
-
+#include <algorithm>
 Multilist::Multilist()
 {
     head = NULL;
@@ -234,7 +234,17 @@ void Multilist::reportePersonalizado(vector<Universidad *> depaV, string depa)
             aux2 = aux->getStart();
     }
 }
-
+class auxU
+{
+public:
+    float cant;
+    string nombreU;
+    auxU(float cant, string nombreU)
+    {
+        this->cant = cant;
+        this->nombreU = nombreU;
+    }
+};
 void Multilist::reportePersonalizado(vector<vector<Universidad *>> departamentos, string departamentosName[])
 {
     Universidad *aux = departamentos[0][0];
@@ -527,16 +537,26 @@ void Multilist::demandaArea()
 void Multilist::sedesUniversidad()
 {
     int cont = 0;
+    vector<auxU *> cantU;
     Universidad *auxUni = this->getHead();
     while (auxUni)
     {
-        Sede *auxSed = auxUni->getStart();
+        /*Sede *auxSed = auxUni->getStart();
         while (auxSed)
         {
             auxSed = auxSed->getNext();
             cont++;
         }
-        cont = 0;
+        cont = 0;*/
+        cantU.push_back(new auxU(auxUni->cantidadSedes() , auxUni->getNombre()));
+        
+    }
+    sort(cantU.begin(), cantU.end(), [](auxU *x, auxU *y){
+        return x->cant > y->cant;
+    });
+    for (int i = 0; i < 5; i++)
+    {
+        cout << cantU[i]->nombreU << " " << cantU[i]->cant << endl;
     }
 }
 
