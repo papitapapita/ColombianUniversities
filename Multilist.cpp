@@ -317,8 +317,9 @@ void Multilist::reportePersonalizado(vector<vector<Universidad *>> departamentos
 void Multilist::topCarreraPromedio()
 {
    float prom=0.0;
-   int cont=0,contador=0;
-   string top[5];
+   int cont=0,contador=0,cant=0;
+   string top[6];
+   string unis[6];
    Universidad *uni=this->getHead();
    Sede *sede=NULL;
    Programa *pro=NULL;
@@ -353,6 +354,8 @@ void Multilist::topCarreraPromedio()
    uni=this->getHead();
    while(uni->getNext()){
     sede=uni->getStart();
+    unis[cant]=uni->getNombre();
+    cant++;
     while(sede->getNext()){
         pro=sede->getStart();
         aux=pro;
@@ -371,8 +374,8 @@ void Multilist::topCarreraPromedio()
     }
     uni=uni->getNext();
    }
-   for(int i=0;i<5;i++){
-    cout<<i+1<<"."<<top[i]<<endl;
+   for(int i=1;i<5;i++){
+    cout<<i<<"."<<top[i]<<" de la "<<unis[i]<<endl;
    }
 }
 
