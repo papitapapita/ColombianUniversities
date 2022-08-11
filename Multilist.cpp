@@ -56,8 +56,13 @@ void Multilist::insertarSede(int universidad, Sede *sede)
 void Multilist::insertarPrograma(int universidadId, int sedeId, Programa *programa)
 {
 }
-void Multilist::insertarEstudiante(int universidadId, int sedeId, int programaId, Estudiante *estudianteId)
+void Multilist::insertarEstudiante(string uni,string sede,string programa, Estudiante *estudianteId)
 {
+    Programa *aux=buscarPrograma(uni,sede,programa);
+    if(aux){
+        aux->insertarEstudiante(estudianteId);
+    }
+    
 }
 void Multilist::insertarNota(int universidadId, int sedeId, int programaId, int estudianteId, Nota *nota)
 {
@@ -71,8 +76,12 @@ void Multilist::eliminarSede(int universidadId, int sedeId, int programaId)
 void Multilist::eliminarPrograma(int universidadId, int sedeId, int programaId)
 {
 }
-void Multilist::eliminarEstudiante(int universidadId, int sedeId, int programaId, int estudianteId)
+void Multilist::eliminarEstudiante(string uni,string sede,string programa, Estudiante *estudianteId)
 {
+    Programa *aux=buscarPrograma(uni,sede,programa);
+    if(aux){
+        aux->eliminarEstudiante(estudianteId);
+    }
 }
 void Multilist::eliminarNota(int universidadId, int sedeId, int programaId, int estudianteId, int nota)
 {

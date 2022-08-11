@@ -20,12 +20,12 @@ public:
     void insertarUniversidadOrder(Universidad *);                                                     // Jonathan
     void insertarSede(int universidad, Sede *sede);                                                   // Jonathan
     void insertarPrograma(int universidadId, int sedeId, Programa *programa);                         // Miguel
-    void insertarEstudiante(int universidadId, int sedeId, int programaId, Estudiante *estudianteId); // Santiago
+    void insertarEstudiante(string,string,string, Estudiante *estudianteId); // Santiago
     void insertarNota(int universidadId, int sedeId, int programaId, int estudianteId, Nota *nota);   // Jhon
     void eliminarUniversidad(int universidadId);                                                      // Jonathan
     void eliminarSede(int universidadId, int sedeId, int programaId);                                 // Jonathan
     void eliminarPrograma(int universidadId, int sedeId, int programaId);                             // Miguel
-    void eliminarEstudiante(int universidadId, int sedeId, int programaId, int estudianteId);         // Santiago
+    void eliminarEstudiante(string,string,string, Estudiante *estudianteId);         // Santiago
     void eliminarNota(int universidadId, int sedeId, int programaId, int estudianteId, int nota);     // Jhon
     void reportePersonalizado(string departamento, string universidad, string sede, string programa, Estudiante *estudiante);
     void reportePersonalizado(string departamento, string universidad, string sede, Programa *programa); // Miguel
