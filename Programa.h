@@ -33,6 +33,7 @@ public:
     float getPromedio();
     void setPromedio(float);
     void insertarEstudiante(Estudiante *);
+    void eliminarEstudiante(Estudiante *);
     void mostrarEstudiante();
     void mostrarNombresEstudiante();
     Estudiante *buscarEstudiante(int indice);

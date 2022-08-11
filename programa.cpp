@@ -112,7 +112,21 @@ void Programa::insertarEstudiante(Estudiante *newEst)
             cout << "Estudiante ya existe\n";
     }
 }
+void Programa::eliminarEstudiante(Estudiante *estudianteId){
+    Estudiante *aux=this->getStart();
+    Estudiante *ant=NULL;
+    while(aux->getDocumento()!=estudianteId->getDocumento()&&aux!=NULL){
+        ant=aux;
+        aux=aux->getNext();
+    }
+    if(aux->getDocumento()==estudianteId->getDocumento()){
+        ant->setNext(aux->getNext());
+    }
+    if(!aux){
+        cout<<"El estudiante no existe";
+    }
 
+}
 void Programa::mostrarEstudiante()
 {
     Estudiante *aux = this->getStart();
