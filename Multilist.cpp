@@ -558,7 +558,7 @@ void Multilist::sedesUniversidad()
         }
         cont = 0;*/
         cantU.push_back(new auxU(auxUni->cantidadSedes() , auxUni->getNombre()));
-        
+        auxUni = auxUni->getNext();
     }
     sort(cantU.begin(), cantU.end(), [](auxU *x, auxU *y){
         return x->cant > y->cant;
