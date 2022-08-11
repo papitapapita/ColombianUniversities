@@ -6,6 +6,7 @@ Programa::Programa()
     semestres = idPrograma = 0;
     start = NULL;
     next = NULL;
+    promedio=0;
 }
 
 Programa::Programa(string nombre, string area, int semestres, int idPrograma)
@@ -89,7 +90,12 @@ void Programa::setStart(Estudiante *start)
 {
     this->start = start;
 }
-
+float Programa::getPromedio(){
+    return promedio;
+}
+void Programa::setPromedio(float pro){
+    promedio=pro;
+}
 void Programa::insertarEstudiante(Estudiante *newEst)
 {
 

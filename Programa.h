@@ -10,6 +10,7 @@ class Programa
     string area;
     int idPrograma;
     int semestres;
+    float promedio;
     Programa *next;
     Estudiante *start;
 
@@ -29,6 +30,8 @@ public:
     void setNext(Programa *);
     void setStart(Estudiante *);
     void setIdPrograma(int);
+    float getPromedio();
+    void setPromedio(float);
     void insertarEstudiante(Estudiante *);
     void mostrarEstudiante();
     void mostrarNombresEstudiante();

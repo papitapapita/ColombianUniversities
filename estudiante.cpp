@@ -10,6 +10,7 @@ Estudiante::Estudiante()
     genero = "";
     edad = 0;
     documento = 0;
+    promedio=0;
     next = NULL;
     start = NULL;
 }

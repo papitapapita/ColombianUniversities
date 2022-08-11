@@ -12,6 +12,7 @@ class Estudiante
     string genero;
     int edad;
     int documento;
+    float promedio;
     Estudiante *next;
     Nota *start;
 
@@ -38,6 +39,7 @@ public:
     void insertarNota(float);
     void mostrarNotas();
     void eliminarNota(float);
+    float getPromedio();
 };
 
 #endif

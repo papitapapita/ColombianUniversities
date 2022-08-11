@@ -289,6 +289,62 @@ void Multilist::reportePersonalizado(vector<vector<Universidad *>> departamentos
 
 void Multilist::topCarreraPromedio()
 {
+    float prom=0.0;
+    int cont=0;
+    Universidad *aux=this->getHead();
+    Sede *aux1=NULL;
+    Programa *aux2=NULL;
+    Programa *mayor=NULL;
+    Programa *progra=NULL;
+    Estudiante *aux3=NULL;
+    Nota *aux4=NULL;
+    vector<Programa *>top;
+    while(aux){
+        aux1=aux->getStart();
+        while(aux1){
+            aux2=aux1->getStart();
+            while(aux2){
+                aux3=aux2->getStart();
+                while(aux3){
+                    aux4=aux3->getStart();
+                    while(aux4->getNext()){
+                        cont++;
+                        prom=(prom+aux4->getNota());
+                        aux4=aux4->getNext();
+                    }
+                    aux3=aux3->getNext();
+                }
+                aux2->setPromedio(prom/cont);
+                aux2=aux2->getNext();
+            }
+            aux1=aux1->getNext();
+        }
+        aux=aux->getNext();
+    }
+    aux=this->getHead();
+    aux1=NULL;
+    aux2=NULL;
+    while(aux){
+        aux1=aux->getStart();
+        while(aux1){
+            aux2=aux1->getStart();
+            mayor=aux2;
+            while(aux2){
+                if(aux2->getPromedio()>mayor->getPromedio()){
+                    mayor=aux2;
+                    aux2=aux2->getNext();
+                }else{
+                    aux2=aux2->getNext();
+                }
+            }
+            top.push_back(new Programa(mayor->getNombre(),mayor->getArea(), mayor->getSemestres(),mayor->getIdPrograma()));
+            aux1=aux1->getNext();
+        }
+        aux=aux->getNext();
+    }
+    for(int i=0;i<top.size();i++){
+        cout<<top[i]<<endl;
+    }
 }
 
 void Multilist::uniPromedioGlobal()
