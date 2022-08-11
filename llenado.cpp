@@ -192,4 +192,5 @@ void llenado()
     departamentos.push_back(unisBoyaca);
     departamentos.push_back(unisAntioquia);
     departamentos.push_back(unisBolivar);
+    m->topCarreraPromedio();
 }
