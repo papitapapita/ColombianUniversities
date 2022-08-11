@@ -4,7 +4,7 @@ int main()
 {
     llenado();
 
-    int opcion = 0;
+    /*int opcion = 0;
     int opcionDepa = 0;
     int i = 0;
     int size = 0;
@@ -135,6 +135,6 @@ int main()
         }
     default:
         break;
-    }
+    }*/
     return 0;
 }

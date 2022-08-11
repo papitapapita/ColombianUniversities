@@ -50,11 +50,19 @@ void Multilist::insertarUniversidadOrder(Universidad *uni)
             cout << "Universidad ya existe\n";
     }
 }
-void Multilist::insertarSede(int universidad, Sede *sede)
+void Multilist::insertarSede(string universidad, Sede *sede)
 {
+    Universidad *aux=buscarUniversidad(universidad);
+    if(aux){
+        aux->insertarSede(sede);
+    }
 }
-void Multilist::insertarPrograma(int universidadId, int sedeId, Programa *programa)
+void Multilist::insertarPrograma(string uni,string sede, Programa *programa)
 {
+    Sede *aux=buscarSede(uni,sede);
+    if(aux){
+        aux->insertarPrograma(programa);
+    }
 }
 void Multilist::insertarEstudiante(string uni,string sede,string programa, Estudiante *estudianteId)
 {
@@ -308,62 +316,64 @@ void Multilist::reportePersonalizado(vector<vector<Universidad *>> departamentos
 
 void Multilist::topCarreraPromedio()
 {
-    float prom=0.0;
-    int cont=0;
-    Universidad *aux=this->getHead();
-    Sede *aux1=NULL;
-    Programa *aux2=NULL;
-    Programa *mayor=NULL;
-    Programa *progra=NULL;
-    Estudiante *aux3=NULL;
-    Nota *aux4=NULL;
-    vector<Programa *>top;
-    while(aux){
-        aux1=aux->getStart();
-        while(aux1){
-            aux2=aux1->getStart();
-            while(aux2){
-                aux3=aux2->getStart();
-                while(aux3){
-                    aux4=aux3->getStart();
-                    while(aux4->getNext()){
-                        cont++;
-                        prom=(prom+aux4->getNota());
-                        aux4=aux4->getNext();
-                    }
-                    aux3=aux3->getNext();
+   float prom=0.0;
+   int cont=0,contador=0;
+   string top[5];
+   Universidad *uni=this->getHead();
+   Sede *sede=NULL;
+   Programa *pro=NULL;
+   Programa *aux=NULL;
+   Estudiante *est=NULL;
+   Nota *nota=NULL;
+   while(uni->getNext()){
+    sede=uni->getStart();
+    while(sede->getNext()){
+        pro=sede->getStart();
+        while(pro->getNext()){
+            est=pro->getStart();
+            while(est->getNext()){
+                nota=est->getStart();
+                while(nota->getNext()){
+                    cont++;
+                    prom+=nota->getNota();
+                    nota=nota->getNext();
                 }
-                aux2->setPromedio(prom/cont);
-                aux2=aux2->getNext();
+                est=est->getNext();
             }
-            aux1=aux1->getNext();
+            prom/=cont;
+            pro->setPromedio(prom);
+            cont=0;
+            prom=0.0;
+            pro=pro->getNext();
         }
-        aux=aux->getNext();
-    }
-    aux=this->getHead();
-    aux1=NULL;
-    aux2=NULL;
-    while(aux){
-        aux1=aux->getStart();
-        while(aux1){
-            aux2=aux1->getStart();
-            mayor=aux2;
-            while(aux2){
-                if(aux2->getPromedio()>mayor->getPromedio()){
-                    mayor=aux2;
-                    aux2=aux2->getNext();
-                }else{
-                    aux2=aux2->getNext();
-                }
+        sede=sede->getNext();    
+        }
+    uni=uni->getNext();
+   }
+   uni=this->getHead();
+   while(uni->getNext()){
+    sede=uni->getStart();
+    while(sede->getNext()){
+        pro=sede->getStart();
+        aux=pro;
+        while(pro->getNext()){
+            if(pro->getPromedio()>aux->getPromedio()){
+                aux=pro;
+                pro=pro->getNext();
+            }else{
+                pro=pro->getNext();
             }
-            top.push_back(new Programa(mayor->getNombre(),mayor->getArea(), mayor->getSemestres(),mayor->getIdPrograma()));
-            aux1=aux1->getNext();
+            pro=pro->getNext();
         }
-        aux=aux->getNext();
+        top[contador]=aux->getNombre();
+        contador++;
+        sede=sede->getNext();
     }
-    for(int i=0;i<top.size();i++){
-        cout<<top[i]<<endl;
-    }
+    uni=uni->getNext();
+   }
+   for(int i=0;i<5;i++){
+    cout<<i+1<<"."<<top[i]<<endl;
+   }
 }
 
 void Multilist::uniPromedioGlobal()
@@ -539,9 +549,9 @@ void Multilist::porcentGeneroGlobal()
     }
 }
 
-void Multilist::demandaArea()
+/*void Multilist::demandaArea()
 {
-}
+}*/
 
 void Multilist::sedesUniversidad()
 {

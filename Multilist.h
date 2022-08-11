@@ -18,8 +18,8 @@ public:
     void mostrarUniversidades();
     void insertarUniversidad(Universidad *);                                                          // Jonathan
     void insertarUniversidadOrder(Universidad *);                                                     // Jonathan
-    void insertarSede(int universidad, Sede *sede);                                                   // Jonathan
-    void insertarPrograma(int universidadId, int sedeId, Programa *programa);                         // Miguel
+    void insertarSede(string universidad, Sede *sede);                                                   // Jonathan
+    void insertarPrograma(string,string, Programa *programa);                         // Miguel
     void insertarEstudiante(string,string,string, Estudiante *estudianteId); // Santiago
     void insertarNota(int universidadId, int sedeId, int programaId, int estudianteId, Nota *nota);   // Jhon
     void eliminarUniversidad(int universidadId);                                                      // Jonathan
@@ -38,7 +38,6 @@ public:
     void porcenEdadesGlobal();                                                                           // Jhon        Porcentaje de estudiantes por edades -
     void demandaCarr();                                                                                  // Miguel   Carreras mas demandas -
     void porcentGeneroGlobal();                                                                          // Santiago        Porcentaje de estudiantes por genero -
-    void demandaArea();                                                                                  // Jhon        Area con mas demanda
     void sedesUniversidad();                                                                             // Miguel        Universidades con mas sedes -
 };
 
